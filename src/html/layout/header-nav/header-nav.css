@@ -1,0 +1,21 @@
+.header{
+    height: 60px;
+    margin-bottom: 10px;
+    padding: 0;
+    font-size: 14px;
+    text-align: center;
+    background-color: #65596b;
+}
+.header .header-nav,.header .welcom{
+    padding:0;
+    line-height: 45px; 
+}
+.header .header-nav a{
+    color:#fff;
+}
+.header .header-nav a.active{
+    color:#ccc;
+}
+.header .welcom a{
+    color:#fff; 
+}

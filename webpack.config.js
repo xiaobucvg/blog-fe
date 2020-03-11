@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
+        'common': path.join(__dirname, 'src/common/common'),
         'index': path.join(__dirname, 'src/page/index'),
     },
     output: {
@@ -36,7 +37,13 @@ module.exports = {
     resolve: {
         alias: {
             '@': path.join(__dirname, 'src')
-        }
+        },
+
+    },
+    externals: {
+        '$': 'jquery',
+        'jquery': 'jquery',
+        'window.jquery': 'jquery'
     },
 
     module: {
@@ -44,7 +51,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
-            }
+            },
         ]
     },
     plugins: [
@@ -52,14 +59,15 @@ module.exports = {
             filename: 'css/[name].[hash].css',
         }),
 
-        renderHtmlWebpackPlugin('index')
+        renderHtmlWebpackPlugin('index', '首页')
     ],
 }
 
 
-function renderHtmlWebpackPlugin(templateName) {
+function renderHtmlWebpackPlugin(templateName, title) {
     return new HtmlWebpackPlugin({
         template: path.join(__dirname, 'src/html/' + templateName + '.html'),
-        chunks: ['vendor', 'common', templateName]
+        chunks: ['vendor', 'common', templateName],
+        title: title + '-博客',
     })
 }
