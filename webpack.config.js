@@ -52,6 +52,10 @@ module.exports = {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
             },
+            {
+                test: /\.eot$|\.svg$|\.ttf$|\.woff$|\.woff2/,
+                use: ['url-loader']
+            },
         ]
     },
     plugins: [
@@ -66,7 +70,7 @@ module.exports = {
 
 function renderHtmlWebpackPlugin(templateName, title) {
     return new HtmlWebpackPlugin({
-        template: path.join(__dirname, 'src/html/' + templateName + '.html'),
+        template: path.join(__dirname, 'src/layout/' + templateName + '.html'),
         chunks: ['vendor', 'common', templateName],
         title: title + '-博客',
     })

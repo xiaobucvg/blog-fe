@@ -1,0 +1,10 @@
+.banner{
+    height: 400px;
+    margin-bottom: 30px;
+    background-color: #343a40;
+}
+.banner .jumbotron{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

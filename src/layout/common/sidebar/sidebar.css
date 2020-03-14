@@ -1,0 +1,48 @@
+.sidebar > .item{
+    padding:10px 0;
+    border-top:1px solid #eee;
+}
+.sidebar > .item > .title{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+.sidebar > .item > .content{
+    padding: 10px 20px;
+    text-align: center;
+}
+/* 博客导航 */
+.sidebar > .blog-nav > .content > .img-nav > .link span{
+    font-size: 30px;
+}
+.sidebar > .blog-nav > .content > .img-nav > .link:hover{
+    text-decoration: none;
+    color:#0085a1 !important;
+}
+
+/* 标签 */
+.sidebar > .tag > .content{
+    text-align: inherit;
+}
+.sidebar > .tag > .content > .badge{
+    margin-bottom: 15px;
+    padding: 8px 5px;
+    border: 1px solid #999;
+    color:#343a40;
+}
+.sidebar > .tag > .content > .badge:hover{
+    background-color: #0085a1 !important;
+    color:#fff;
+}
+
+/* 热门文章 */
+.sidebar > .hot > .content{
+    text-align: inherit;
+}
+.sidebar > .hot > .content > .article-item > .link{
+    color:#343a40;
+}
+.sidebar > .hot > .content > .article-item > .link:hover{
+    color:#0085a1 !important;
+}

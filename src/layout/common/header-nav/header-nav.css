@@ -1,0 +1,9 @@
+.header{
+    height: 70px;
+    font-size: 14px;
+    line-height: 70px;
+    background-color: #333333;
+}
+.header .header-nav{
+    background-color: #333333;
+}
