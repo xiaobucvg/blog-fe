@@ -13,6 +13,10 @@
     text-align: center;
 }
 /* 博客导航 */
+.sidebar > .blog-nav > .content > img{
+    width: 180px;
+    height: 180px;
+}
 .sidebar > .blog-nav > .content > .img-nav > .link span{
     font-size: 30px;
 }

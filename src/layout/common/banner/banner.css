@@ -8,3 +8,6 @@
     flex-direction: column;
     justify-content: center;
 }
+.banner .jumbotron .title{
+    color:#fff !important;
+}

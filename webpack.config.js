@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     entry: {
         'common': path.join(__dirname, 'src/common/common'),
-        'index': path.join(__dirname, 'src/page/index'),
+        'index': path.join(__dirname, 'src/page/index/index'),
+        'detail': path.join(__dirname, 'src/page/detail/detail'),
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -36,7 +37,8 @@ module.exports = {
 
     resolve: {
         alias: {
-            '@': path.join(__dirname, 'src')
+            '@': path.join(__dirname, 'src'),
+            '@3': path.join(__dirname, 'node_modules'),
         },
 
     },
@@ -63,7 +65,8 @@ module.exports = {
             filename: 'css/[name].[hash].css',
         }),
 
-        renderHtmlWebpackPlugin('index', '首页')
+        renderHtmlWebpackPlugin('index', '首页'),
+        renderHtmlWebpackPlugin('detail', '详情')
     ],
 }
 
@@ -71,7 +74,8 @@ module.exports = {
 function renderHtmlWebpackPlugin(templateName, title) {
     return new HtmlWebpackPlugin({
         template: path.join(__dirname, 'src/layout/' + templateName + '.html'),
+        filename: templateName + '.html',
         chunks: ['vendor', 'common', templateName],
-        title: title + '-博客',
+        title: title + '-Xiaobucvg博客',
     })
 }
