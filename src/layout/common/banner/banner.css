@@ -11,3 +11,9 @@
 .banner .jumbotron .title{
     color:#fff !important;
 }
+
+@media screen and (max-width:576px){
+    .banner .jumbotron .title{
+        font-size: 32px;
+    }
+}

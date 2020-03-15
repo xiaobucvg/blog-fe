@@ -11,6 +11,7 @@ import '@/util/blog-menu/js/jquery.autoMenu.js'
 import '@/util/blog-menu/css/jquery.autoMenu.css'
 
 $(function () {
+    sessionStorage.setItem('nth-nav', -1);
     banner('标题', '发布时间');
 
     let code = `#include "flutter/fml/trace_event.h"

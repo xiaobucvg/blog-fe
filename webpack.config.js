@@ -4,9 +4,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
+        // 前台
         'common': path.join(__dirname, 'src/common/common'),
         'index': path.join(__dirname, 'src/page/index/index'),
         'detail': path.join(__dirname, 'src/page/detail/detail'),
+        'archive': path.join(__dirname, 'src/page/archive/archive'),
+        'links': path.join(__dirname, 'src/page/links/links'),
+        'about': path.join(__dirname, 'src/page/about/about'),
+        'result': path.join(__dirname, 'src/page/result/result'),
+        // 后台
+        'admin-index': path.join(__dirname, 'src/page/admin/index/index'),
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -64,12 +71,27 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',
         }),
-
+        // 前台
         renderHtmlWebpackPlugin('index', '首页'),
-        renderHtmlWebpackPlugin('detail', '详情')
+        renderHtmlWebpackPlugin('detail', '详情'),
+        renderHtmlWebpackPlugin('archive', '归档'),
+        renderHtmlWebpackPlugin('links', '链接'),
+        renderHtmlWebpackPlugin('about', '关于我'),
+        renderHtmlWebpackPlugin('result', '结果'),
+        // 后台
+        renderHtmlWebpackPluginAsAdmin('index', '首页'),
     ],
 }
 
+
+function renderHtmlWebpackPluginAsAdmin(templateName, title) {
+    return new HtmlWebpackPlugin({
+        template: path.join(__dirname, 'src/layout/admin/' + templateName + '.html'),
+        filename: 'admin/' + templateName + '.html',
+        chunks: ['vendor', 'common', templateName],
+        title: title + '-博客后台管理',
+    })
+}
 
 function renderHtmlWebpackPlugin(templateName, title) {
     return new HtmlWebpackPlugin({

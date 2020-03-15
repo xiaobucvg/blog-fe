@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%=require('html-loader!./common/header/header.html')%>
+    <title>
+        <%=htmlWebpackPlugin.options.title%>
+    </title>
+</head>
+
+<body>
+    <%=require('html-loader!./common/header-nav/header-nav.html')%>
+
+    <!-- 中间的巨幕 -->
+    <%=require('html-loader!./common/banner/banner.html')%>
+
+    <!-- 主体部分 -->
+    <section class="container main">
+        <div class="row">
+            <!-- 内容 -->
+            <div class="col-lg-8 content">
+                <div class="archive-group">
+                    <!-- 归档日期 -->
+                    <div class="archive-date">
+                        <h2 class="title font-weight-bold">2019年10月</h2>
+                    </div>
+                    <!-- 归档条目 -->
+
+                    <div class="item">
+                        <a href="#" class="link">
+                            <h4 class="title">彻底理解微服务,彻底理解微服务,彻底理解微服务,彻底理解微服务,彻底理解微服务,彻底理解微服务</h4>
+                        </a>
+                        <div class="post-date mt-2">
+                            发布于：<span>2019年10月31日 23:21:12</span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <a href="#" class="link">
+                            <h4 class="title">彻底理解微服务</h4>
+                        </a>
+                        <div class="post-date mt-2">
+                            发布于：<span>2019年10月31日 23:21:12</span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <a href="#" class="link">
+                            <h4 class="title">彻底理解微服务</h4>
+                        </a>
+                        <div class="post-date mt-2">
+                            发布于：<span>2019年10月31日 23:21:12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="archive-group">
+                    <!-- 归档日期 -->
+                    <div class="archive-date">
+                        <h2 class="title font-weight-bold">2019年10月</h2>
+                    </div>
+                    <!-- 归档条目 -->
+
+                    <div class="item">
+                        <a href="#" class="link">
+                            <h4 class="title">彻底理解微服务</h4>
+                        </a>
+                        <div class="post-date mt-2">
+                            发布于：<span>2019年10月31日 23:21:12</span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <a href="#" class="link">
+                            <h4 class="title">彻底理解微服务</h4>
+                        </a>
+                        <div class="post-date mt-2">
+                            发布于：<span>2019年10月31日 23:21:12</span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <a href="#" class="link">
+                            <h4 class="title">彻底理解微服务</h4>
+                        </a>
+                        <div class="post-date mt-2">
+                            发布于：<span>2019年10月31日 23:21:12</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 分页 -->
+                <div class="pagination-wrap">
+                    <%=require('html-loader!../util/pagination/pagination.html')%>
+                </div>
+            </div>
+            <!-- 侧边栏 -->
+            <div class="d-none d-lg-block col-lg-3  ml-5">
+                <%=require('html-loader!./common/sidebar/sidebar.html')%>
+            </div>
+        </div>
+    </section>
+
+    <%=require('html-loader!./common/footer/footer.html')%>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%=require('html-loader!./common/header/header.html')%>
+    <title>
+        <%=htmlWebpackPlugin.options.title%>
+    </title>
+</head>
+
+<body>
+    <%=require('html-loader!./common/header-nav/header-nav.html')%>
+
+    <!-- 中间的巨幕 -->
+    <%=require('html-loader!./common/banner/banner.html')%>
+
+    <!-- 主体部分 -->
+    <section class="container main">
+        <div class="row">
+            <!-- 内容 -->
+            <div class="col-lg-8 content">
+
+            </div>
+            <!-- 侧边栏 -->
+            <div class="d-none d-lg-block col-lg-3  ml-5">
+                <%=require('html-loader!./common/sidebar/sidebar.html')%>
+            </div>
+        </div>
+    </section>
+
+    <%=require('html-loader!./common/footer/footer.html')%>
+</body>
+
+</html>

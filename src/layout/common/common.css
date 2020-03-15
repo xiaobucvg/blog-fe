@@ -5,3 +5,13 @@ html{
 .bdr-none{
     border-radius:unset; 
 }
+
+.bd-none{
+    border:none;
+}
+
+@media screen and (max-width:576px){
+    html{
+        font-size: 14px;
+    }
+}
