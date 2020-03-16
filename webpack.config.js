@@ -16,6 +16,7 @@ module.exports = {
         'admin-index': path.join(__dirname, 'src/page/admin/index/index'),
         'admin-manage': path.join(__dirname, 'src/page/admin/manage/manage'),
         'admin-edit': path.join(__dirname, 'src/page/admin/edit/edit'),
+        'admin-login': path.join(__dirname, 'src/page/admin/login/login'),
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -84,6 +85,7 @@ module.exports = {
         renderHtmlWebpackPluginAsAdmin('index', '首页'),
         renderHtmlWebpackPluginAsAdmin('manage', '博文管理'),
         renderHtmlWebpackPluginAsAdmin('edit', '博文编辑'),
+        renderHtmlWebpackPluginAsAdmin('login', '登录'),
     ],
 }
 
