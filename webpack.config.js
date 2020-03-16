@@ -14,6 +14,8 @@ module.exports = {
         'result': path.join(__dirname, 'src/page/result/result'),
         // 后台
         'admin-index': path.join(__dirname, 'src/page/admin/index/index'),
+        'admin-manage': path.join(__dirname, 'src/page/admin/manage/manage'),
+        'admin-edit': path.join(__dirname, 'src/page/admin/edit/edit'),
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -50,9 +52,9 @@ module.exports = {
 
     },
     externals: {
-        '$': 'jquery',
-        'jquery': 'jquery',
-        'window.jquery': 'jquery'
+        // '$': 'jquery',
+        // 'jquery': 'jquery',
+        // 'window.jquery': 'jquery'
     },
 
     module: {
@@ -62,7 +64,7 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
             },
             {
-                test: /\.eot$|\.svg$|\.ttf$|\.woff$|\.woff2/,
+                test: /\.(woff|woff2|ttf|eot|otf|svg|gif|png)$/,
                 use: ['url-loader']
             },
         ]
@@ -80,19 +82,22 @@ module.exports = {
         renderHtmlWebpackPlugin('result', '结果'),
         // 后台
         renderHtmlWebpackPluginAsAdmin('index', '首页'),
+        renderHtmlWebpackPluginAsAdmin('manage', '博文管理'),
+        renderHtmlWebpackPluginAsAdmin('edit', '博文编辑'),
     ],
 }
 
-
+// 提供后台页面
 function renderHtmlWebpackPluginAsAdmin(templateName, title) {
     return new HtmlWebpackPlugin({
         template: path.join(__dirname, 'src/layout/admin/' + templateName + '.html'),
         filename: 'admin/' + templateName + '.html',
-        chunks: ['vendor', 'common', templateName],
+        chunks: ['vendor', 'common', 'admin-' + templateName],
         title: title + '-博客后台管理',
     })
 }
 
+// 提供前台页面
 function renderHtmlWebpackPlugin(templateName, title) {
     return new HtmlWebpackPlugin({
         template: path.join(__dirname, 'src/layout/' + templateName + '.html'),

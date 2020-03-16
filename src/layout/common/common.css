@@ -10,6 +10,33 @@ html{
     border:none;
 }
 
+.outline-none{
+    outline: none !important;
+}
+
+.bd-1{
+    border: 1px solid #ccc;
+}
+
+.btn-color{
+    background-color: #5a6268;
+    color:#fff;
+}
+.btn-color:hover{
+    color:#fff;
+}
+
+.circle{
+    border-radius: 50%;
+}
+
+.color-link{
+   color: #0085a1 !important;
+}
+.color-hover-white:hover{
+    color:#fff !important;
+}
+
 @media screen and (max-width:576px){
     html{
         font-size: 14px;

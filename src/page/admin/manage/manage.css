@@ -1,0 +1,27 @@
+.main{
+    margin-top: 80px;
+}
+.main > .card > .card-header{
+    background-color:#6c757d;
+    text-align: left;
+    color: #fff;
+}
+
+.main .table{
+    font-size: 14px;
+}
+
+.main .link{
+    color:#343a40;
+}
+.main .link:hover{
+    text-decoration: none;
+    color:#0085a1 !important;
+}
+.main .card-header .link:hover{
+    color:#fff !important;
+}
+.main .new-article{
+    position: absolute;
+    right: 20px;
+}
