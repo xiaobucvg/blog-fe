@@ -1,0 +1,15 @@
+{@each list as item}
+<div class="item">
+    <a href="./detail.html?id=${item.id}" class="link text-body">
+        <h3 class="title">
+            ${item.title}
+        </h3>
+        <div class="abstract">
+            $${item.abstractInfo}
+        </div>
+    </a>
+    <div class="date">
+        发布于 : ${item.createTime}
+    </div>
+</div>
+{@/each}

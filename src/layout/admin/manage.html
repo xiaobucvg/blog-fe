@@ -17,150 +17,38 @@
             <!-- 搜索栏 -->
             <div class="card-header">
                 <div class="card-body p-1 d-flex align-items-center text-right">
-                    <form class="form-inline mr-3">
-                        <input class="form-control mr-sm-2 bdr-none bd-none" type="text" placeholder="请输入要搜索的文章">
-                        <button class="btn bdr-none btn-color" type="submit">搜索</button>
-                    </form>
-                    <a href="#" class="link text-white">所有文章</a>
-                    <a href="./edit.html" class="link text-white new-article"><span
+                    <div class="form-inline mr-3">
+                        <input class="form-control mr-sm-2 bdr-none bd-none" type="text" placeholder="请输入要搜索的文章"
+                            id="keywords_input">
+                        <input type="button" class="btn bdr-none btn-color" id="search_btn" value="搜索" />
+                    </div>
+                    <a class=" link text-white" id="all_article_btn">所有文章</a>
+                    <a href="/admin/edit.html" class="link text-white new-article"><span
                             class="iconfont mr-2">&#xe646;</span>新建博文</a>
                 </div>
             </div>
             <!-- 文章表格 -->
-            <div class="card-body d-flex justify-content-around">
+            <div class="card-body d-flex justify-content-around table-hover">
+
                 <table class="table">
                     <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col"><a href="#" class="link">ID</a></th>
-                            <th scope="col"><a href="#" class="link">标题</a></th>
-                            <th scope="col"><a href="#" class="link">状态</a></th>
-                            <th scope="col"><a href="#" class="link">发布时间</a></th>
-                            <th scope="col"><a href="#" class="link">修改时间</a></th>
-                            <th scope="col"><a href="#" class="link">阅读数</a></th>
-                            <th scope="col"><a href="#" class="link">操作</a></th>
+                            <th scope="col"><a class="link table-link" id="id_btn">ID</a></th>
+                            <th scope="col"><a class="link table-link" id="title_btn">标题</a></th>
+                            <th scope="col"><a class="link table-link" id="status_btn">状态</a></th>
+                            <th scope="col"><a class="link table-link" id="create_time_btn">发布时间</a></th>
+                            <th scope="col"><a class="link table-link" id="update_time_btn">修改时间</a></th>
+                            <th scope="col"><a class="link table-link" id="reading_btn">阅读数</a></th>
+                            <th scope="col"><a class="link table-link" id="status_btn">操作</a></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <a href="#" class="link">
-                                    20161120
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#" class="link color-link">
-                                    JDK8 新特性解读
-                                </a>
-                            </td>
-                            <td class="text-success">已发布</td>
-                            <td>2020-11-12 23:12:21</td>
-                            <td>2020-11-12 23:12:21</td>
-                            <td>2233</td>
-                            <td>
-                                <a href="#" class="link text-danger">删除</a>
-                                <a href="#" class="link">编辑</a>
-                                <a href="#" class="link">置顶</a>
-                                <a href="#" class="link">停止发布</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <a href="#" class="link">
-                                    20161120
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#" class="link color-link">
-                                    JDK8 新特性解读
-                                </a>
-                            </td>
-                            <td class="text-success">已发布</td>
-                            <td>2020-11-12 23:12:21</td>
-                            <td>2020-11-12 23:12:21</td>
-                            <td>2233</td>
-                            <td>
-                                <a href="#" class="link text-danger">删除</a>
-                                <a href="#" class="link">编辑</a>
-                                <a href="#" class="link">置顶</a>
-                                <a href="#" class="link">停止发布</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <a href="#" class="link">
-                                    20161120
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#" class="link color-link">
-                                    JDK8 新特性解读
-                                </a>
-                            </td>
-                            <td class="text-success">已发布</td>
-                            <td>2020-11-12 23:12:21</td>
-                            <td>2020-11-12 23:12:21</td>
-                            <td>2233</td>
-                            <td>
-                                <a href="#" class="link text-danger">删除</a>
-                                <a href="#" class="link">编辑</a>
-                                <a href="#" class="link">置顶</a>
-                                <a href="#" class="link">停止发布</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <a href="#" class="link">
-                                    20161120
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#" class="link color-link">
-                                    JDK8 新特性解读
-                                </a>
-                            </td>
-                            <td class="text-success">已发布</td>
-                            <td>2020-11-12 23:12:21</td>
-                            <td>2020-11-12 23:12:21</td>
-                            <td>2233</td>
-                            <td>
-                                <a href="#" class="link text-danger">删除</a>
-                                <a href="#" class="link">编辑</a>
-                                <a href="#" class="link">置顶</a>
-                                <a href="#" class="link">停止发布</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <a href="#" class="link">
-                                    20161120
-                                </a>
-                            </td>
-                            <td>
-                                <a href="#" class="link color-link">
-                                    JDK8 新特性解读
-                                </a>
-                            </td>
-                            <td class="text-success">已发布</td>
-                            <td>2020-11-12 23:12:21</td>
-                            <td>2020-11-12 23:12:21</td>
-                            <td>2233</td>
-                            <td>
-                                <a href="#" class="link text-danger">删除</a>
-                                <a href="#" class="link">编辑</a>
-                                <a href="#" class="link">置顶</a>
-                                <a href="#" class="link">停止发布</a>
-                            </td>
-                        </tr>
+                    <tbody id="table_wrapper">
+                        <!-- ... 模板渲染区域 -->
                     </tbody>
                 </table>
             </div>
-            <div class="card-footer text-muted">
+            <div class="card-footer text-muted" id="page">
                 <%=require('html-loader!../../util/pagination/pagination.html')%>
             </div>
         </div>

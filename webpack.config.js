@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     entry: {
         // 前台
-        'common': path.join(__dirname, 'src/common/common'),
+        'common-client': path.join(__dirname, 'src/common/client/common'),
         'index': path.join(__dirname, 'src/page/index/index'),
         'detail': path.join(__dirname, 'src/page/detail/detail'),
         'archive': path.join(__dirname, 'src/page/archive/archive'),
@@ -13,6 +13,7 @@ module.exports = {
         'about': path.join(__dirname, 'src/page/about/about'),
         'result': path.join(__dirname, 'src/page/result/result'),
         // 后台
+        'common-admin': path.join(__dirname, 'src/common/admin/common'),
         'admin-index': path.join(__dirname, 'src/page/admin/index/index'),
         'admin-manage': path.join(__dirname, 'src/page/admin/manage/manage'),
         'admin-edit': path.join(__dirname, 'src/page/admin/edit/edit'),
@@ -34,13 +35,34 @@ module.exports = {
                     enforce: true,
                     minSize: 0,
                 },
-                common: {
-                    test: path.join(__dirname, 'src', 'common'),
-                    name: 'common',
+                'common-client': {
+                    test: path.join(__dirname, 'src', 'common', 'client'),
+                    name: 'common-client',
                     priority: 10,
                     enforce: true,
                     minSize: 0,
                 },
+                'common-admin': {
+                    test: path.join(__dirname, 'src', 'common', 'admin'),
+                    name: 'common-admin',
+                    priority: 10,
+                    enforce: true,
+                    minSize: 0,
+                },
+                'common-fun': {
+                    test: path.join(__dirname, 'src', 'util'),
+                    name: 'common-fun',
+                    priority: 10,
+                    enforce: true,
+                    minSize: 0,
+                },
+                'service': {
+                    test: path.join(__dirname, 'src', 'service'),
+                    name: 'service',
+                    priority: 10,
+                    enforce: true,
+                    minSize: 0,
+                }
             }
         }
     },
@@ -68,6 +90,10 @@ module.exports = {
                 test: /\.(woff|woff2|ttf|eot|otf|svg|gif|png)$/,
                 use: ['url-loader']
             },
+            {
+                test: /\.tmpl$/,
+                use: ['html-loader']
+            }
         ]
     },
     plugins: [
@@ -87,6 +113,21 @@ module.exports = {
         renderHtmlWebpackPluginAsAdmin('edit', '博文编辑'),
         renderHtmlWebpackPluginAsAdmin('login', '登录'),
     ],
+
+    devServer: {
+        hot: true,
+        open: true,
+        port: 5500,
+        contentBase: path.join(__dirname, "dist"),
+        proxy: {
+            '/api': {
+                changeOrigin: true,
+                target: 'http://127.0.0.1:8080/',
+                pathRewrite: { '^/api': '' },
+                secue: false,
+            },
+        },
+    }
 }
 
 // 提供后台页面
@@ -94,7 +135,7 @@ function renderHtmlWebpackPluginAsAdmin(templateName, title) {
     return new HtmlWebpackPlugin({
         template: path.join(__dirname, 'src/layout/admin/' + templateName + '.html'),
         filename: 'admin/' + templateName + '.html',
-        chunks: ['vendor', 'common', 'admin-' + templateName],
+        chunks: ['vendor', 'common-css', 'common-admin', 'common-fun', 'service', 'admin-' + templateName],
         title: title + '-博客后台管理',
     })
 }
@@ -104,7 +145,7 @@ function renderHtmlWebpackPlugin(templateName, title) {
     return new HtmlWebpackPlugin({
         template: path.join(__dirname, 'src/layout/' + templateName + '.html'),
         filename: templateName + '.html',
-        chunks: ['vendor', 'common', templateName],
+        chunks: ['vendor', 'common-css', 'common-client', 'common-fun', 'service', templateName],
         title: title + '-Xiaobucvg博客',
     })
 }

@@ -1,0 +1,20 @@
+{@each list as group,key}
+<div class="archive-group">
+    <!-- 归档日期 -->
+    <div class="archive-date">
+        <h2 class="title font-weight-bold">${key}</h2>
+    </div>
+    <!-- 归档条目 -->
+
+    {@each group as item}
+    <div class="item">
+        <a href="/detail.html?id=${item.id}" class="link">
+            <h4 class="title">${item.title}</h4>
+        </a>
+        <div class="post-date mt-2">
+            发布于：<span>${item.createTime}</span>
+        </div>
+    </div>
+    {@/each}
+</div>
+{@/each}

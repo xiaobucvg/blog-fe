@@ -9,17 +9,41 @@
 </head>
 
 <body>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="tick_modal" data-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="staticBackdropLabel">提示</span>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="tick_msg">
+                    文章更新成功
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <%=require('html-loader!./common/header-nav/header-nav.html')%>
+
+
 
     <!-- 主体部分 -->
     <section class="container main">
+
         <div class="bdr-none card">
 
             <div class="card-header">
                 <!-- 标题 -->
                 <div class="form-group">
                     <input type="text" class="bdr-none outline-none form-control form-control-lg text-center"
-                        id="exampleFormControlInput1" placeholder="请输入标题（不能超过50个字）">
+                        id="title_input" placeholder="请输入标题（不能超过50个字）">
                 </div>
             </div>
 
@@ -41,7 +65,7 @@
 
             <div class="card-footer d-flex align-items-center justify-content-end">
                 <a href="#" class="link mr-5 color-link">存为草稿</a>
-                <button type="button" class="btn btn-secondary">发布</button>
+                <input type="button" class="btn btn-secondary" id="publish_btn" value="发布" />
             </div>
         </div>
     </section>

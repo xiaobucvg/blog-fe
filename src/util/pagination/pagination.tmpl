@@ -1,0 +1,23 @@
+<ul class="pagination">
+
+    {@if hasPrePage}
+    <li class="page-item"><a class="page-link page-pre">前一页</a></li>
+    {@else}
+    <li class="page-item disabled"><a class="page-link page-pre">前一页</a></li>
+    {@/if}
+
+    {@each i in range(start,end + 1)}
+    {@if currentPage == i}
+    <li class="page-item active"><a class="page-link page-number" data-page="${i}">${i}</a></li>
+    {@else}
+    <li class="page-item"><a class="page-link page-number" data-page="${i}">${i}</a></li>
+    {@/if}
+    {@/each}
+
+    {@if hasNextPage}
+    <li class="page-item"><a class="page-link page-next">后一页</a></li>
+    {@else}
+    <li class="page-item disabled"><a class="page-link page-next">后一页</a></li>
+    {@/if}
+
+</ul>
