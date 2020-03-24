@@ -11,6 +11,25 @@
 
 <body>
 
+    <!-- Modal -->
+    <div class="modal fade" id="tick_modal" data-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="staticBackdropLabel">提示</span>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="tick_msg">
+                    文章更新成功
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <!-- 登录 -->
     <div class="container-fluid pt-5 pb-5 login-panel">
         <div class="container mb-5 bg-light pt-3 pb-3">
@@ -19,17 +38,15 @@
             </h2>
         </div>
         <div class="container bg-light pt-5 pb-5">
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1" class="font-weight-bold">管理员账户</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1" class="font-weight-bold">密码</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <button type="submit" class="btn btn-primary">登录</button>
-            </form>
+            <div class="form-group">
+                <label for="username_input" class="font-weight-bold">管理员账户</label>
+                <input type="text" class="form-control" id="username_input">
+            </div>
+            <div class="form-group">
+                <label for="password_input" class="font-weight-bold">密码</label>
+                <input type="password" class="form-control" id="password_input">
+            </div>
+            <input type="button" class="btn btn-primary" id="login_btn" value="登录" />
         </div>
 
     </div>

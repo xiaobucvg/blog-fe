@@ -5,6 +5,9 @@ import util from '@/util/util'
 
 import articleTableTmpl from './article-table.tmpl'
 
+
+import '@/layout/admin/common/header-nav/header-nav'
+
 const manage = {
     pageInfo: {},
 

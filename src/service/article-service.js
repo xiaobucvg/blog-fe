@@ -98,6 +98,15 @@ export default {
         });
     },
 
+    // 获取文章详细数据
+    getPublishedDetailArticle(id) {
+        return util.request({
+            url: util.devHost + '/articles/' + id,
+            type: 'GET',
+            contentType: 'application/json'
+        })
+    },
+
     // 查询归档
     getArchive(obj) {
         let defaultObj = { startPage: 1, count: 2, sorts: [], keywords: "" };
@@ -119,7 +128,7 @@ export default {
         let defaultObj = { startPage: 1, count: 10, sorts: [{ name: "id", rule: "desc" }], keywords: "" };
         obj = Object.assign(defaultObj, obj);
         return util.request({
-            url: util.devHost + '/articles/' + obj.tagid,
+            url: util.devHost + '/articles/tag/' + obj.tagid,
             type: 'GET',
             contentType: 'application/json',
             data: 'json=' + encodeURI(JSON.stringify({
@@ -133,7 +142,7 @@ export default {
     // 获取 10 篇热门文章
     getHotArticles() {
         return util.request({
-            url: util.devHost + '/admin/articles/hot-articles',
+            url: util.devHost + '/articles/hot-articles',
             type: 'GET',
             data: {
                 count: 6

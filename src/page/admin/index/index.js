@@ -4,6 +4,9 @@ import Chart from 'chart.js'
 
 import articleService from '@/service/article-service'
 
+
+import '@/layout/admin/common/header-nav/header-nav'
+
 $(function () {
 
     // 1. 获取热门文章展示到图表

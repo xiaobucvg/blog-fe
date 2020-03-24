@@ -28,7 +28,7 @@ const detail = {
             window.location.href = '/index.html';
         }
 
-        articleService.getDetailArticle(this.articleId).then(data => {
+        articleService.getPublishedDetailArticle(this.articleId).then(data => {
             console.log(data);
             banner(data.title, '发布于 ' + data.createTime);
             $('#article').html(data.content);

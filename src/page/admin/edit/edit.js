@@ -12,6 +12,9 @@ import 'bootstrap4-tagsinput/tagsinput'
 import util from '@/util/util'
 import articleService from '@/service/article-service'
 
+
+import '@/layout/admin/common/header-nav/header-nav'
+
 const edit = {
 
     editor: {},
@@ -19,6 +22,7 @@ const edit = {
     articleInfo: {},
 
     init() {
+
         this.initEditor(); // 编辑器
         $('#tags').tagsinput(); // 多选框
         this.articleId = util.getUrlParamter('id'); // 获取 ID

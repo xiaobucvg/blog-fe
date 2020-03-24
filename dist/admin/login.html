@@ -12,10 +12,29 @@
     <title>
         登录-博客后台管理
     </title>
-<link href="../css/common-fun.5b5696f6bbe3da3e88e3.css" rel="stylesheet"><link href="../css/vendor.5b5696f6bbe3da3e88e3.css" rel="stylesheet"><link href="../css/common-admin.5b5696f6bbe3da3e88e3.css" rel="stylesheet"><link href="../css/admin-login.5b5696f6bbe3da3e88e3.css" rel="stylesheet"></head>
+<link href="../css/common-fun.b96870a0596a4548f1e9.css" rel="stylesheet"><link href="../css/vendor.b96870a0596a4548f1e9.css" rel="stylesheet"><link href="../css/common-admin.b96870a0596a4548f1e9.css" rel="stylesheet"><link href="../css/admin-login.b96870a0596a4548f1e9.css" rel="stylesheet"></head>
 </head>
 
 <body>
+
+    <!-- Modal -->
+    <div class="modal fade" id="tick_modal" data-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="staticBackdropLabel">提示</span>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="tick_msg">
+                    文章更新成功
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- 登录 -->
     <div class="container-fluid pt-5 pb-5 login-panel">
@@ -25,17 +44,15 @@
             </h2>
         </div>
         <div class="container bg-light pt-5 pb-5">
-            <form>
-                <div class="form-group">
-                    <label for="exampleInputEmail1" class="font-weight-bold">管理员账户</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1" class="font-weight-bold">密码</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <button type="submit" class="btn btn-primary">登录</button>
-            </form>
+            <div class="form-group">
+                <label for="username_input" class="font-weight-bold">管理员账户</label>
+                <input type="text" class="form-control" id="username_input">
+            </div>
+            <div class="form-group">
+                <label for="password_input" class="font-weight-bold">密码</label>
+                <input type="password" class="form-control" id="password_input">
+            </div>
+            <input type="button" class="btn btn-primary" id="login_btn" value="登录" />
         </div>
 
     </div>
@@ -45,6 +62,6 @@
         <p>Copyright © 2020 Soft | xiaobucvg</p>
     </div>
 </footer>
-<script type="text/javascript" src="../js/common-fun.5b5696f6bbe3da3e88e3.js"></script><script type="text/javascript" src="../js/vendor.5b5696f6bbe3da3e88e3.js"></script><script type="text/javascript" src="../js/service.5b5696f6bbe3da3e88e3.js"></script><script type="text/javascript" src="../js/common-admin.5b5696f6bbe3da3e88e3.js"></script><script type="text/javascript" src="../js/admin-login.5b5696f6bbe3da3e88e3.js"></script></body>
+<script type="text/javascript" src="../js/common-fun.b96870a0596a4548f1e9.js"></script><script type="text/javascript" src="../js/vendor.b96870a0596a4548f1e9.js"></script><script type="text/javascript" src="../js/service.b96870a0596a4548f1e9.js"></script><script type="text/javascript" src="../js/common-admin.b96870a0596a4548f1e9.js"></script><script type="text/javascript" src="../js/admin-login.b96870a0596a4548f1e9.js"></script></body>
 
 </html>

@@ -17,11 +17,19 @@
     </div>
     <!-- 用户 -->
     <div class="user d-flex">
-        <div class="avatar mr-3">
-            <img src="https://pic2.zhimg.com/v2-59766c0975764b83b8946c48ac1c39b8_is.jpg" class="pic circle " alt="无法显示">
+
+
+
+        <div class="dropdown">
+            <a class="dropdown-toggle text-white" data-toggle="dropdown" role="button" id="name_area"></a>
+            <div class="dropdown-menu">
+                <!-- <div class="dropdown-divider"></div> -->
+                <a class="dropdown-item" id="logout_btn">退出登录</a>
+            </div>
         </div>
-        <a href="#" class="name">
-            <span class="username text-white">xiaobu</span>
-        </a>
+        <div class="avatar ml-3">
+            <img id="avatar_area" src="https://pic2.zhimg.com/v2-59766c0975764b83b8946c48ac1c39b8_is.jpg"
+                class="pic circle " alt="无法显示">
+        </div>
     </div>
 </nav>
