@@ -11,9 +11,9 @@ const login = {
     init() {
 
         // 如果打开登录页面能够查到个人信息,说明已经登录了,跳到管理页面
-        adminService.getInfo().then(() => {
-            window.location.href = "/admin/index.html";
-        });
+        // adminService.getInfo().then(() => {
+        //     window.location.href = "/admin/index.html";
+        // });
 
         this.bindEvent();
     },
@@ -23,7 +23,8 @@ const login = {
         $('#login_btn').click(function () {
             that.createRequestInfo();
             if (that.validateData()) {
-                adminService.login(that.requestInfo).then(() => {
+                adminService.getToken(that.requestInfo.username, that.requestInfo.password).then((token) => {
+                    window.localStorage.setItem('token', token);
                     window.location.href = '/admin/index.html'
                 }).catch((data) => {
                     util.errTip(data.msg);
@@ -32,11 +33,13 @@ const login = {
         });
     },
 
+    // 创建用户请求信息
     createRequestInfo() {
         this.requestInfo.username = $('#username_input').val().trim();
         this.requestInfo.password = $('#password_input').val().trim();
     },
 
+    // 验证数据
     validateData() {
         if (this.requestInfo.username == null || this.requestInfo.username.length < 1) {
             util.errorTip('用户名不能为空');

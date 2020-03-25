@@ -4,22 +4,25 @@ import util from '@/util/util'
 
 
 export default {
-    // 登录
-    login(obj) {
+    // 获取 token
+    getToken(username, password) {
         return util.request({
-            url: util.devHost + '/admin/login',
-            type: 'POST',
+            url: util.devHost + '/admin/token',
+            type: 'GET',
             contentType: 'application/json',
-            data: JSON.stringify({
-                username: obj.username,
-                password: obj.password
-            })
+            data: {
+                username,
+                password,
+            }
         })
     },
 
     // 查看自己的信息
     getInfo() {
         return util.request({
+            headers: {
+                'auth-token': window.localStorage.getItem('token')
+            },
             url: util.devHost + '/admin/user',
             type: 'GET',
             contentType: 'application/json',
@@ -28,10 +31,7 @@ export default {
 
     // 退出登录
     logout() {
-        return util.request({
-            url: util.devHost + '/admin/logout',
-            type: 'GET',
-            contentType: 'application/json',
-        })
+        window.localStorage.removeItem('token');
+        window.location.href = '/admin/login.html'
     }
 }

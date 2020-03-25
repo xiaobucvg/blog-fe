@@ -21,6 +21,9 @@ const edit = {
     articleId: -1,
     articleInfo: {},
 
+    // 草稿文章
+    tmpArticle: {},
+
     init() {
 
         this.initEditor(); // 编辑器
@@ -31,6 +34,14 @@ const edit = {
                 this.articleInfo = data;
                 this.showArticleInfo();
             })
+        }
+        // 如果是新建文章从本地草稿中获取内容
+        else {
+            let localArticle = window.localStorage.getItem('article');
+            if (localArticle) {
+                this.articleInfo = JSON.parse(localArticle) || {};
+                this.showArticleInfo();
+            }
         }
 
         this.bindEvent();
@@ -83,7 +94,16 @@ const edit = {
                     util.successTip('创建文章成功');
                 }
             });
+            window.localStorage.removeItem('article');
         });
+
+        // 存为草稿
+        $('#save_btn').click(function () {
+            that.createArticleInfo();
+            that.tmpArticle = Object.assign(that.tmpArticle, that.articleInfo);
+            debugger
+            window.localStorage.setItem('article', JSON.stringify(that.tmpArticle));
+        })
 
     },
 

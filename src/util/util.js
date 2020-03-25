@@ -41,6 +41,7 @@ export default {
             $.ajax({
                 type: obj.type || 'GET',
                 url: obj.url,    // 请求地址
+                headers: obj.headers || {},
                 // 请求发送的数据
                 data: obj.data,
                 dataType: 'json', // 接收的数据类型
@@ -53,7 +54,7 @@ export default {
                     }
                     // 需要登录
                     else if (data.code == NEED_LOGIN) {
-                        that.goLoginPage();
+                        // that.goLoginPage();
                     }
                     // 失败
                     else {

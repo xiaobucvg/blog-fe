@@ -18,16 +18,8 @@
     <td data-id="${item.id}" data-status="${item.status}">
         <a class="link text-danger" id="delete_btn">删除</a>
         <a href="/admin/edit.html?id=${item.id}" target="blank" class="link" id="edit_btn">编辑</a>
-        <!-- 只能置顶发布状态的文章 -->
-        <!-- 如果文章不是发布状态，不显示置顶按钮 -->
-        <!-- 如果文章是发布状态或者置顶状态，显示停止发布 -->
-        {@if item.status == 1004}
-        <a class="link" id="top_btn">取消置顶</a>
-        {@else if item.status == 1001}
-        <a class="link" id="top_btn">置顶</a>
-        {@/if}
         {@if item.status == 1001 || item.status == 1004}
-        <a class="link" id="publish_btn">停止发布</a>
+        <a class="link" id="publish_btn">停止</a>
         {@else}
         <a class="link" id="publish_btn">发布</a>
         {@/if}

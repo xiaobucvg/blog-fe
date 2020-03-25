@@ -16,3 +16,7 @@
 .archive-group > .item > .link:hover .title{
     color: #0085a1 !important;
 }
+#page{
+    display: flex;
+    justify-content: center;
+}

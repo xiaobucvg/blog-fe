@@ -16,14 +16,15 @@ export default {
 
     // 后台
 
-
-
     // 分页获取全部文章
     // 默认获取第 1 页，10 条数据，按照文章 ID S->L 排序
     getArticles(obj) {
         let defaultObj = { startPage: 1, count: 10, sorts: [{ name: "id", rule: "desc" }], keywords: "" };
         obj = Object.assign(defaultObj, obj);
         return util.request({
+            headers: {
+                'auth-token': window.localStorage.getItem('token')
+            },
             url: util.devHost + '/admin/articles',
             type: 'GET',
             contentType: 'application/json',
@@ -38,6 +39,9 @@ export default {
     // 删除文章
     deleteArticle(id) {
         return util.request({
+            headers: {
+                'auth-token': window.localStorage.getItem('token')
+            },
             url: util.devHost + '/admin/articles/' + id,
             type: 'DELETE',
             contentType: 'application/json',
@@ -48,6 +52,9 @@ export default {
     topArticle(id, action) {
         let statusCode = action ? this.articleStatus.PUBLISHED : this.articleStatus.TOP;
         return util.request({
+            headers: {
+                'auth-token': window.localStorage.getItem('token')
+            },
             url: util.devHost + '/admin/articles/' + id + '?statusCode=' + statusCode,
             type: 'PUT',
             contentType: 'application/json',
@@ -57,6 +64,9 @@ export default {
     publishArticle(id, action) {
         let statusCode = action ? this.articleStatus.PUBLISHED : this.articleStatus.NOT_PUBLISHED;
         return util.request({
+            headers: {
+                'auth-token': window.localStorage.getItem('token')
+            },
             url: util.devHost + '/admin/articles/' + id + '?statusCode=' + statusCode,
             type: 'PUT',
             contentType: 'application/json',
@@ -65,6 +75,9 @@ export default {
     // 获取文章详细数据
     getDetailArticle(id) {
         return util.request({
+            headers: {
+                'auth-token': window.localStorage.getItem('token')
+            },
             url: util.devHost + '/admin/articles/' + id,
             type: 'GET',
             contentType: 'application/json'
@@ -74,6 +87,9 @@ export default {
     saveArticle(data) {
 
         return util.request({
+            headers: {
+                'auth-token': window.localStorage.getItem('token')
+            },
             url: util.devHost + '/admin/articles',
             type: 'POST',
             data: JSON.stringify(data),
