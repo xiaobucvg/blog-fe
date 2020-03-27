@@ -10,29 +10,9 @@
 
 <body>
 
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="tick_modal" data-backdrop="static" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="modal-title" id="staticBackdropLabel">提示</span>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="tick_msg">
-                    文章更新成功
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <div id="tip_modal"></div>
 
     <%=require('html-loader!./common/header-nav/header-nav.html')%>
-
-
 
     <!-- 主体部分 -->
     <section class="container main">
@@ -49,7 +29,6 @@
 
             <div class="card-body">
                 <form>
-
                     <!-- 编辑区 -->
                     <div class="form-group">
                         <div id="editor"> </div>

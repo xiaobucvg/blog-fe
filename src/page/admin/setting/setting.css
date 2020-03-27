@@ -1,0 +1,18 @@
+.main{
+    margin-top: 80px;
+    min-height: 500px;
+}
+.main > .card > .card-header{
+    background-color:#6c757d;
+    text-align: left;
+    color: #fff;
+}
+
+.main .table{
+    font-size: 14px;
+    table-layout: fixed;
+}
+
+.fun-nav .list-group-item-action.active{
+    background-color: #6c757d !important;
+}

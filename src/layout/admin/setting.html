@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%=require('html-loader!../common/header/header.html')%>
+    <title>
+        <%=htmlWebpackPlugin.options.title%>
+    </title>
+</head>
+
+<body>
+    <%=require('html-loader!./common/header-nav/header-nav.html')%>
+
+    <!-- 主体部分 -->
+    <section class="container main">
+
+        <div class="row">
+            <div class="col-2 fun-nav">
+                <div class="list-group bdr-none" id="list-tab" role="tablist">
+                    <a class="bdr-none list-group-item list-group-item-action active text-center" id="list-home-list"
+                        data-toggle="list" href="#list-home" role="tab">用户设置</a>
+                    <a class="list-group-item list-group-item-action text-center" id="list-profile-list"
+                        data-toggle="list" href="#list-profile" role="tab">博客导航</a>
+                    <a class="list-group-item list-group-item-action text-center" id="list-messages-list"
+                        data-toggle="list" href="#list-messages" role="tab">更改密码</a>
+                    <a class="bdr-none cash list-group-item list-group-item-action text-center" id="list-settings-list"
+                        data-toggle="list" href="#list-settings" role="tab">回收站</a>
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-home" role="tabpanel">
+                        <div
+                            class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+                            <!-- 照片 -->
+                            <div class="col-auto d-none d-lg-block">
+                                <img src="http://msn-img-nos.yiyouliao.com/inforec-20200326-c7335018be06ca9e5b07988ed8b3004a.jpg?time=1585316494&signature=80AF56EFCC6A0F0E2B31FC4D64CEA2C5"
+                                    alt="" width="200" height="300">
+                            </div>
+
+                            <!-- 信息 -->
+                            <div class="col p-4 d-flex flex-column position-static">
+                                <strong class="d-inline-block mb-2 text-primary">小布</strong>
+                                <h3 class="mb-0">今日运势</h3>
+                                <div class="mb-1 text-muted">三月 初八</div>
+                                <p class="card-text mb-auto">大佬不一定是大佬，菜鸟一定是菜鸟。</p>
+                                <a href="#" class="stretched-link">更改个人信息</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="list-profile" role="tabpanel">...</div>
+                    <div class="tab-pane fade" id="list-messages" role="tabpanel">...</div>
+                    <!-- 回收站 -->
+                    <div class="tab-pane fade" id="list-settings" role="tabpanel">
+                        <table class="table">
+                            <thead>
+                                <tr class="bg-light">
+                                    <td scope="col">#</td>
+                                    <td scope="col">
+                                        <a class="link table-link" id="id_btn">ID</a>
+                                    </td>
+                                    <td scope="col"><a class="link table-link" id="title_btn">标题</a>
+                                    </td>
+                                    </td>
+                                    <td scope="col"><a class="link table-link" id="update_time_btn">删除时间</a>
+                                    </td>
+                                    <td scope="col"><a class="link table-link" id="status_btn">操作</a>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody id="table_wrapper">
+                                <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <a class="link">
+                                            1001
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="link color-link">
+                                            文章标题
+                                        </a>
+                                    </td>
+                                    <td>2016-02-02 23:23:23</td>
+                                    <td>
+                                        <a class="link text-danger" id="delete_btn">永久删除</a>
+                                        <a target="blank" class="link">恢复</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <%=require('html-loader!../common/footer/footer.html')%>
+</body>
+
+</html>

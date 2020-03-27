@@ -7,7 +7,7 @@ export default {
     // 获取 token
     getToken(username, password) {
         return util.request({
-            url: util.devHost + '/admin/token',
+            url: util.host + '/admin/token',
             type: 'GET',
             contentType: 'application/json',
             data: {
@@ -23,7 +23,7 @@ export default {
             headers: {
                 'auth-token': window.localStorage.getItem('token')
             },
-            url: util.devHost + '/admin/user',
+            url: util.host + '/admin/user',
             type: 'GET',
             contentType: 'application/json',
         })

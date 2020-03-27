@@ -14,13 +14,14 @@ import articleService from '@/service/article-service'
 
 import util from '@/util/util'
 
+import tagsTmpl from './tags.tmpl'
+
 const detail = {
 
     article: -1,
 
     init() {
         sessionStorage.setItem('nth-nav', -1);
-        banner('标题', '发布时间');
 
         this.articleId = util.getUrlParamter('id');
 
@@ -29,10 +30,16 @@ const detail = {
         }
 
         articleService.getPublishedDetailArticle(this.articleId).then(data => {
-            console.log(data);
             banner(data.title, '发布于 ' + data.createTime);
+
             $('#article').html(data.content);
+
+            let tagsHtml = util.renderHtml(tagsTmpl, data);
+            $('#tags_content').html(tagsHtml);
+
             this.createCatalog();
+        }).catch(() => {
+            window.location.href = '/index.html'
         });
     },
 
@@ -47,27 +54,6 @@ const detail = {
 
 $(function () {
 
-
     detail.init();
-
-
-    //     let code = `#include "flutter/fml/trace_event.h"
-    // #define TRACE_EVENT0(category_group, name)
-    // #define TRACE_EVENT1(category_group, name, arg1_name, arg1_val)
-    // #define TRACE_EVENT2(category_group, name, arg1_name, arg1_val, arg2_name, arg2_val)
-    // #define FML_TRACE_EVENT(category_group, name, ...)
-    // fml:: tracing:: TraceEvent0(category_group, name);
-    // fml:: tracing:: TraceEventEnd(name);
-    //     //示例：
-    // TRACE_EVENT0("flutter", "PipelineConsume");
-    // TRACE_EVENT2("flutter", "Framework Workload",
-    //     "mode", "basic", "frame", FrameParity());
-    // `
-
-    //     let html = Prism.highlight(code, Prism.languages.javascript, 'c');
-
-    //     $('.language-c').html(html);
-
-
 
 })

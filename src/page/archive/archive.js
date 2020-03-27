@@ -27,9 +27,6 @@ const archive = {
             this.createHtml(data);
             this.pageInfo = this.getPageInfo(data);
 
-            console.log(data);
-
-
             // 点击页码之后的回调
             this.pageInfo.callBack = (pageData) => {
                 that.requestInfo.startPage = pageData.currentPage;

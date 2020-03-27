@@ -5,11 +5,29 @@ import juicer from 'juicer'
 const OK = 200;
 const NEED_LOGIN = 401;
 
+const tipModal = `
+<!-- Modal -->
+<div class="modal fade" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title" id="staticBackdropLabel">提示</span>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="tip_msg">
+                文章更新成功
+            </div>
+        </div>
+    </div>
+</div>
+`;
 
 export default {
 
-    devHost: '/api',
-    Host: '',
+    // host: 'http://101.201.122.174:8080',
+    host: 'http://127.0.0.1:8080',
 
     // 模板渲染数据
     renderHtml(template, data) {
@@ -62,7 +80,7 @@ export default {
                     }
                 },
                 error(XMLHttpRequest, textStatus, errorThrown) {
-                    that.errTip('请求出错，请检查网络!错误状态 : ' + textStatus);
+                    console.error('请求出错，请检查网络!错误状态 : ' + textStatus);
                 }
             });
         })
@@ -70,18 +88,20 @@ export default {
 
     // 错误提示
     errTip(msg) {
-        if ($('#tick_modal').length > 0) {
-            $('#tick_modal #tick_msg').text(msg);
-            $('#tick_modal').modal();
+        if ($('#tip_modal').length > 0) {
+            $('#tip_modal').html(tipModal);
+            $('#tip_modal #tip_msg').text(msg);
+            $('#tip_modal .modal').modal();
         }
         else {
             alert(msg);
         }
     },
     successTip(msg) {
-        if ($('#tick_modal').length > 0) {
-            $('#tick_modal #tick_msg').text(msg);
-            $('#tick_modal').modal();
+        if ($('#tip_modal').length > 0) {
+            $('#tip_modal').html(tipModal);
+            $('#tip_modal #tip_msg').text(msg);
+            $('#tip_modal .modal').modal();
         }
         else {
             alert(msg);

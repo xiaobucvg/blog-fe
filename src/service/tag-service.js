@@ -10,7 +10,7 @@ export default {
         let defaultObj = { startPage: 1, count: 50, sorts: [{ name: "name", rule: "asc" }], keywords: "" };
         obj = Object.assign(defaultObj, obj);
         return util.request({
-            url: util.devHost + '/tags',
+            url: util.host + '/tags',
             type: 'GET',
             contentType: 'application/json',
             data: 'json=' + encodeURI(JSON.stringify({

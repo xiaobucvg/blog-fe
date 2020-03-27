@@ -16,6 +16,7 @@ module.exports = {
         'common-admin': path.join(__dirname, 'src/common/admin/common'),
         'admin-index': path.join(__dirname, 'src/page/admin/index/index'),
         'admin-manage': path.join(__dirname, 'src/page/admin/manage/manage'),
+        'admin-setting': path.join(__dirname, 'src/page/admin/setting/setting'),
         'admin-edit': path.join(__dirname, 'src/page/admin/edit/edit'),
         'admin-login': path.join(__dirname, 'src/page/admin/login/login'),
     },
@@ -111,22 +112,23 @@ module.exports = {
         renderHtmlWebpackPluginAsAdmin('index', '首页'),
         renderHtmlWebpackPluginAsAdmin('manage', '博文管理'),
         renderHtmlWebpackPluginAsAdmin('edit', '博文编辑'),
+        renderHtmlWebpackPluginAsAdmin('setting', '设置'),
         renderHtmlWebpackPluginAsAdmin('login', '登录'),
     ],
 
     devServer: {
-        hot: true,
-        open: true,
-        port: 5500,
-        contentBase: path.join(__dirname, "dist"),
-        proxy: {
-            '/api': {
-                changeOrigin: true,
-                target: 'http://127.0.0.1:8080/',
-                pathRewrite: { '^/api': '' },
-                secue: false,
-            },
-        },
+        // hot: true,
+        // open: true,
+        // port: 5500,
+        // contentBase: path.join(__dirname, "dist"),
+        // proxy: {
+        //     '/api': {
+        //         changeOrigin: true,
+        //         target: 'http://127.0.0.1:8080/',
+        //         pathRewrite: { '^/api': '' },
+        //         secue: false,
+        //     },
+        // },
     }
 }
 

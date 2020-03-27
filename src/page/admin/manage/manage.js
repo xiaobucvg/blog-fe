@@ -9,18 +9,17 @@ import articleTableTmpl from './article-table.tmpl'
 import '@/layout/admin/common/header-nav/header-nav'
 
 const manage = {
+    // 分页参数
     pageInfo: {},
 
     // 分页对象
-    pagaination: {},
+    pagaination: null,
 
     // 全局请求信息
     requestInfo: {},
 
     init() {
-
-        this.getDataAndPage({});
-
+        this.getDataAndPage();
         this.bindEvent();
     },
 
@@ -30,20 +29,21 @@ const manage = {
         // 所有文章
         $('#all_article_btn').click(function () {
             $('.table-link').removeClass('active');
+            $('#keywords_input').val('');
             that.requestInfo = {};
             that.getDataAndPage();
-            $('#keywords_input').val('');
         });
         // 搜索
         $('#search_btn').click(function () {
             let keywords = $('#keywords_input').val().trim();
             if (keywords != '') {
                 that.requestInfo = {
-                    keywords: keywords,
+                    keywords,
                 };
                 that.getDataAndPage();
             }
         });
+
         // ID
         $('#id_btn').click(function () {
             $('.table-link').removeClass('active');
@@ -132,19 +132,6 @@ const manage = {
                 });
             }
         });
-        // 操作 - 按照状态排序
-        $(document).on('click', '#status_btn', function () {
-            $('.table-link').removeClass('active');
-            $(this).addClass('active')
-            that.requestInfo.startPage = 1;
-            that.requestInfo.sorts = [
-                {
-                    name: 'status',
-                    rule: 'desc'
-                }
-            ]
-            that.getDataAndPage();
-        });
 
         // 置顶/取消置顶
         $(document).on('click', '#top_btn', function () {
@@ -169,8 +156,6 @@ const manage = {
     // 获取数据并生成分页
     getDataAndPage() {
         let that = this;
-        // 1. 获取默认数据,渲染
-        // 2. 创建默认数据的分页
         articleService.getArticles(that.requestInfo).then(data => {
             this.createHtml(data);
             this.pageInfo = this.getPageInfo(data);

@@ -16,7 +16,7 @@
         <div class="bdr-none card mb-5">
             <!-- 搜索栏 -->
             <div class="card-header">
-                <div class="card-body p-1 d-flex align-items-center text-right">
+                <div class="p-1 d-flex align-items-center text-right">
                     <div class="form-inline mr-3">
                         <input class="form-control mr-sm-2 bdr-none bd-none" type="text" placeholder="请输入要搜索的文章"
                             id="keywords_input">
@@ -31,16 +31,29 @@
             <div class="card-body d-flex justify-content-around table-hover">
 
                 <table class="table">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col"><a class="link table-link" id="id_btn">ID</a></th>
-                            <th scope="col"><a class="link table-link" id="title_btn">标题</a></th>
-                            <th scope="col"><a class="link table-link" id="status_btn">状态</a></th>
-                            <th scope="col"><a class="link table-link" id="create_time_btn">发布时间</a></th>
-                            <th scope="col"><a class="link table-link" id="update_time_btn">修改时间</a></th>
-                            <th scope="col"><a class="link table-link" id="reading_btn">阅读数</a></th>
-                            <th scope="col"><a class="link table-link" id="status_btn">操作</a></th>
+                    <thead>
+                        <tr class="bg-light">
+                            <td scope="col">#</td>
+                            <td scope="col">
+                                <a class="link table-link" id="id_btn">ID</a>
+                            </td>
+                            <td scope="col"><a class="link table-link" id="title_btn">标题</a>
+
+                            </td>
+                            <td scope="col"><a class="link table-link" id="status_btn">状态</a>
+
+                            </td>
+                            <td scope="col"><a class="link table-link" id="create_time_btn">发布时间</a>
+
+                            </td>
+                            <td scope="col"><a class="link table-link" id="update_time_btn">修改时间</a>
+
+                            </td>
+                            <td scope="col"><a class="link table-link" id="reading_btn">阅读数</a>
+
+                            </td>
+                            <td scope="col"><a class="link table-link" id="status_btn">操作</a>
+                            </td>
                         </tr>
                     </thead>
                     <tbody id="table_wrapper">

@@ -77,7 +77,7 @@ const result = {
 
     getDataAndPageByTag() {
         let that = this;
-        articleService.getTagArticles(that.requestInfo).then(data => {
+        articleService.getPublishedArticles(that.requestInfo).then(data => {
             this.createHtml(data);
             this.pageInfo = this.getPageInfo(data);
             // 点击页码之后的回调

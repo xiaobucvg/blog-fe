@@ -25,7 +25,7 @@ export default {
             headers: {
                 'auth-token': window.localStorage.getItem('token')
             },
-            url: util.devHost + '/admin/articles',
+            url: util.host + '/admin/articles',
             type: 'GET',
             contentType: 'application/json',
             data: 'json=' + encodeURI(JSON.stringify({
@@ -35,30 +35,16 @@ export default {
             })) + '&keywords=' + obj.keywords
         });
     },
-
     // 删除文章
     deleteArticle(id) {
         return util.request({
             headers: {
                 'auth-token': window.localStorage.getItem('token')
             },
-            url: util.devHost + '/admin/articles/' + id,
+            url: util.host + '/admin/articles?ids=' + id,
             type: 'DELETE',
             contentType: 'application/json',
         });
-    },
-    // 置顶/取消置顶文章
-    // action true 置顶   false 取消置顶
-    topArticle(id, action) {
-        let statusCode = action ? this.articleStatus.PUBLISHED : this.articleStatus.TOP;
-        return util.request({
-            headers: {
-                'auth-token': window.localStorage.getItem('token')
-            },
-            url: util.devHost + '/admin/articles/' + id + '?statusCode=' + statusCode,
-            type: 'PUT',
-            contentType: 'application/json',
-        })
     },
     // 停止/发布
     publishArticle(id, action) {
@@ -67,7 +53,7 @@ export default {
             headers: {
                 'auth-token': window.localStorage.getItem('token')
             },
-            url: util.devHost + '/admin/articles/' + id + '?statusCode=' + statusCode,
+            url: util.host + '/admin/articles?ids=' + id + '&statusCode=' + statusCode,
             type: 'PUT',
             contentType: 'application/json',
         })
@@ -78,7 +64,7 @@ export default {
             headers: {
                 'auth-token': window.localStorage.getItem('token')
             },
-            url: util.devHost + '/admin/articles/' + id,
+            url: util.host + '/admin/articles/article?id=' + id,
             type: 'GET',
             contentType: 'application/json'
         })
@@ -90,7 +76,7 @@ export default {
             headers: {
                 'auth-token': window.localStorage.getItem('token')
             },
-            url: util.devHost + '/admin/articles',
+            url: util.host + '/admin/articles',
             type: 'POST',
             data: JSON.stringify(data),
             contentType: 'application/json'
@@ -99,25 +85,28 @@ export default {
 
     // 前台
 
+    // 分页获取文章
+    // - 可以根据关键词
+    // - 可以获取标签下的文章
     getPublishedArticles(obj) {
-        let defaultObj = { startPage: 1, count: 10, sorts: [{ name: "id", rule: "desc" }], keywords: "" };
+        let defaultObj = { startPage: 1, count: 10, sorts: [{ name: "id", rule: "desc" }], keywords: "", tagid: "" };
         obj = Object.assign(defaultObj, obj);
         return util.request({
-            url: util.devHost + '/articles',
+            url: util.host + '/articles',
             type: 'GET',
             contentType: 'application/json',
             data: 'json=' + encodeURI(JSON.stringify({
                 startPage: obj.startPage,
                 count: obj.count,
                 sorts: obj.sorts
-            })) + '&keywords=' + obj.keywords
+            })) + '&keywords=' + obj.keywords + '&tagid=' + obj.tagid
         });
     },
 
     // 获取文章详细数据
     getPublishedDetailArticle(id) {
         return util.request({
-            url: util.devHost + '/articles/' + id,
+            url: util.host + '/articles/article?id=' + id,
             type: 'GET',
             contentType: 'application/json'
         })
@@ -128,23 +117,7 @@ export default {
         let defaultObj = { startPage: 1, count: 2, sorts: [], keywords: "" };
         obj = Object.assign(defaultObj, obj);
         return util.request({
-            url: util.devHost + '/articles/archives',
-            type: 'GET',
-            contentType: 'application/json',
-            data: 'json=' + encodeURI(JSON.stringify({
-                startPage: obj.startPage,
-                count: obj.count,
-                sorts: obj.sorts
-            }))
-        });
-    },
-
-    // 获取标签下的文章
-    getTagArticles(obj) {
-        let defaultObj = { startPage: 1, count: 10, sorts: [{ name: "id", rule: "desc" }], keywords: "" };
-        obj = Object.assign(defaultObj, obj);
-        return util.request({
-            url: util.devHost + '/articles/tag/' + obj.tagid,
+            url: util.host + '/articles/archives',
             type: 'GET',
             contentType: 'application/json',
             data: 'json=' + encodeURI(JSON.stringify({
@@ -158,7 +131,7 @@ export default {
     // 获取 10 篇热门文章
     getHotArticles() {
         return util.request({
-            url: util.devHost + '/articles/hot-articles',
+            url: util.host + '/articles/hot-articles',
             type: 'GET',
             data: {
                 count: 6

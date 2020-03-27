@@ -11,7 +11,7 @@ a{
 }
 
 .bdr-none{
-    border-radius:unset; 
+    border-radius:unset !important; 
 }
 
 .bd-none{
