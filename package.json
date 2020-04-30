@@ -36,7 +36,7 @@
     "bootstrap": "^4.4.1",
     "bootstrap4-tagsinput": "^4.1.3",
     "chart.js": "^2.9.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "juicer": "^0.6.15",
     "popper.js": "^1.16.1",
     "prismjs": "^1.19.0",
