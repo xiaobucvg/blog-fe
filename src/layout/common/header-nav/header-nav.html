@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="header_nav_wrapper">
     <!-- logo -->
     <a class="navbar-brand font-weight-bold" href="./index.html">Xiaobu</a>
     <!-- 展开/折叠按钮 -->
@@ -10,23 +10,25 @@
         <!-- 导航内容 -->
         <ul class="navbar-nav mr-auto" id="header_nav">
             <li class="nav-item">
-                <a class="nav-link" href="./index.html">首页</a>
+                <a class="nav-link active " href="./index.html">首页</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./archive.html">归档</a>
+                <a class="nav-link active" href="./archive.html">归档</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./links.html">链接</a>
+                <a class="nav-link active" href="./links.html">链接</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./about.html">关于我</a>
+                <a class="nav-link active" href="./about.html">关于我</a>
             </li>
         </ul>
         <!-- 搜索栏 -->
         <div class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2 bdr-none bd-none" type="text" placeholder="请输入要搜索的内容" aria-label="Search"
                 id="keywords_input">
-            <input class="btn  my-2 my-sm-0 btn-secondary" value="搜索" type="button" id="search_btn" />
+
+            <button class="bdr-none btn my-2 my-sm-0 btn-light" type="button" id="search_btn"><span
+                    class="iconfont icon-sousuo"></span></button>
         </div>
     </div>
 </nav>

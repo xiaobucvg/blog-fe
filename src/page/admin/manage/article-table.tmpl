@@ -1,17 +1,29 @@
 {@each list as item, index}
 <tr>
-    <td>${index}</td>
+    <td>${parseInt((currentPage - 1) * hopeCount) + parseInt(index) + parseInt(1)}</td>
     <td>
         <a href="/detail.html?id=${item.id}" class="link">
             ${item.id}
         </a>
     </td>
     <td>
-        <a href="/detail.html?id=${item.id}" class="link color-link">
+        {@if item.status==1001}
+        <a href="/detail.html?id=${item.id}" target="blank" class="link color-link">
             ${item.title}
         </a>
+        {@else}
+        <a class="link color-link" href="javascript:alert('未发布')">
+            ${item.title}
+        </a>
+        {@/if}
+
     </td>
+    {@if item.status==1001}
     <td class="text-success">${item.statusDescription}</td>
+    {@else}
+    <td class="text-warning">${item.statusDescription}</td>
+    {@/if}
+
     <td>${item.createTime}</td>
     <td>${item.updateTime}</td>
     <td>${item.reading}</td>

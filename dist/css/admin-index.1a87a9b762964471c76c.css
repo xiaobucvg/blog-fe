@@ -6,3 +6,7 @@
     text-align: left;
     color: #fff;
 }
+.container{
+    width: 1280px !important;
+    max-width: none !important;
+}

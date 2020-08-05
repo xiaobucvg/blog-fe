@@ -1,0 +1,11 @@
+
+.container-full{
+    max-width: none !important;
+    padding: 10px;
+}
+
+.form-signin{
+    max-width: 420px;
+    margin:auto;
+}
+

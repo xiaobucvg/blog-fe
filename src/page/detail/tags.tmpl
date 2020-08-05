@@ -1,5 +1,3 @@
-{@each tags as item}
-<div class="article-item">
-    <a href="/detail.html?id=${item.id}" class="link">${item.name}</a>
-</div>
+{@each list as item}
+<a href="/result.html?tag=${item.id}&tagname=${item.name}" class="tag-badge badge pl-2 pr-2 pt-1 pb-1">${item.name}</a>
 {@/each}

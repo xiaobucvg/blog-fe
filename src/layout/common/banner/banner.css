@@ -9,9 +9,12 @@
     justify-content: center;
 }
 .banner .jumbotron .title{
+    font-size:50px;
     color:#fff !important;
 }
-
+.banner .bg-dark{
+    background-color:#262c3a !important;
+}
 @media screen and (max-width:576px){
     .banner .jumbotron .title{
         font-size: 32px;

@@ -1,22 +1,60 @@
 /* 文章 */
+article > pre {
+    background-color: #343a40 !important;
+    color:#fff;
+}
 article > pre > code{
-    overflow: auto;
+    font-size: 14px !important;
+}
+@media screen and (max-width:576px){
+    article > pre > code{
+        font-size: 12px !important;
+    }
 }
 /* 排版 */
 
 /* 目录 */
+.menu-title{
+    font-size: 2em;
+}
 #auto_menu > ul > li > a{
-    color:#aaa;
+    color:#0085a1;
 }
 #auto_menu > ul > li > a:hover{
     text-decoration: none;
-    color:#0085a1;
 }
 #auto_menu > ul > li.sub{
     text-indent: 2rem;
 }
 #auto_menu .icon-minus-sign{
     display: none !important;
+}
+
+/* 上/下一篇 */
+.pre-next{
+    display: flex;
+    justify-content: space-between;
+}
+.pre-next a{
+    margin: 12px 5px;
+    font-weight: 700;
+    color:#343a40;
+    border:1px #ccc solid;
+    padding: 5px 25px;
+}
+.pre-next a:hover{
+    border:none;
+    text-decoration: none;
+    color:#fff;
+    background-color: #0085a1;
+}
+
+/* 标签 */
+.tag-badge{
+    margin-bottom: 5px;
+    border:1px solid #ccc;
+    color:#ccc;
+    border-radius: 999em;
 }
 /* 回到顶部 */
 

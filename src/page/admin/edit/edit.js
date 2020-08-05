@@ -12,57 +12,31 @@ import 'bootstrap4-tagsinput/tagsinput'
 import util from '@/util/util'
 import articleService from '@/service/article-service'
 
-
-import '@/layout/admin/common/header-nav/header-nav'
-
 const edit = {
 
-    editor: {},
-    articleId: -1,
-    articleInfo: {},
+    articleId: null,
 
-    // 草稿文章
-    tmpArticle: {},
+    articleInfo: {},
 
     init() {
 
-        this.initEditor(); // 编辑器
-        $('#tags').tagsinput(); // 多选框
-        this.articleId = util.getUrlParamter('id'); // 获取 ID
-        if (!isNaN(this.articleId) && this.articleId > 0) {
-            articleService.getDetailArticle(this.articleId).then((data) => {
-                this.articleInfo = data;
-                this.showArticleInfo();
-            })
-        }
-        // 如果是新建文章从本地草稿中获取内容
-        else {
-            let localArticle = window.localStorage.getItem('article');
-            if (localArticle) {
-                this.articleInfo = JSON.parse(localArticle) || {};
-                this.showArticleInfo();
-            }
+        // 获取文章 ID，如果有的话
+        this.articleId = util.getUrlParamter('id') || null;
+
+        // 初始化编辑器
+        this.initEditor();
+
+        // 初始化多选框
+        $('#tags').tagsinput();
+
+        // 将文章信息显示
+        if (this.articleId != null) {
+            this.showArticleInfo();
         }
 
+        // 绑定事件
         this.bindEvent();
     },
-
-
-    // 显示文章信息
-    showArticleInfo() {
-        // 标题
-        $('#title_input').val(this.articleInfo.title);
-        // 内容
-        this.editor.setHtml(this.articleInfo.content);
-        // 标签
-        $('#tags').tagsinput('removeAll')
-        this.articleInfo.tags.forEach(el => {
-            $('#tags').tagsinput('add', el.name)
-        });
-        // 发布按钮
-        $('#publish_btn').val('更新');
-    },
-
 
     // 初始化编辑器
     initEditor() {
@@ -72,47 +46,61 @@ const edit = {
             language: 'zh_CN',
             hideModeSwitch: true,
             height: 600,
-        });
-
+            useCommandShortcut: true,
+            useDefaultHTMLSanitizer: true,
+            usageStatistics: false,
+        })
+        this.editor.addHook('addImageBlobHook', () => {
+            let imgFile = $('.te-image-file-input').get(0).files[0];
+            let info = $('.te-alt-text-input').val().trim();
+            articleService.postImg(imgFile).then((data) => {
+                this.editor.insertText('![' + info + ']' + '(' + data.url + ')');
+            });
+        })
     },
 
-    // 绑定事件
-    bindEvent() {
-        let that = this;
-
-        // 发布
-        $(document).on('click', '#publish_btn', function () {
-            that.createArticleInfo();
-            if (!that.validateData()) {
-                return;
-            }
-            articleService.saveArticle(that.articleInfo).then(() => {
-                if (!isNaN(that.articleId) && that.articleId > 0) {
-                    util.successTip('更新文章成功');
-                }
-                else {
-                    util.successTip('创建文章成功');
-                }
+    // 显示文章信息
+    showArticleInfo() {
+        articleService.getDetailArticle(this.articleId).then((data) => {
+            this.articleInfo = data;
+            // 标题
+            $('#title_input').val(this.articleInfo.title);
+            // 内容
+            this.editor.setHtml(this.articleInfo.content);
+            // 标签
+            $('#tags').tagsinput('removeAll')
+            this.articleInfo.tags.forEach(el => {
+                $('#tags').tagsinput('add', el.name)
             });
-            window.localStorage.removeItem('article');
-        });
-
-        // 存为草稿
-        $('#save_btn').click(function () {
-            that.createArticleInfo();
-            that.tmpArticle = Object.assign(that.tmpArticle, that.articleInfo);
-            debugger
-            window.localStorage.setItem('article', JSON.stringify(that.tmpArticle));
+            // 按钮
+            $('#publish_btn').val('更新');
         })
 
     },
 
-    // 创建文章数据
-    createArticleInfo() {
-        this.articleInfo = {};
-        this.articleInfo.id = this.articleId;
+
+    // 绑定事件
+    bindEvent() {
+        // 发布按钮
+        $('#publish_btn').click(() => {
+            this.changeArticleInfo();
+            if (!this.validateData()) {
+                return;
+            }
+            articleService.saveArticle(this.articleInfo).then((data, msg) => {
+                util.successTip(msg);
+            });
+        });
+    },
+
+
+    // 修改文章信息
+    changeArticleInfo() {
+        // 标题
         this.articleInfo.title = $('#title_input').val();
+        // 内容
         this.articleInfo.content = this.editor.getHtml();
+        // 标签
         this.articleInfo.tags = this.getAllTags();
     },
 

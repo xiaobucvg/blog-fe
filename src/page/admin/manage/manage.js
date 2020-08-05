@@ -5,9 +5,6 @@ import util from '@/util/util'
 
 import articleTableTmpl from './article-table.tmpl'
 
-
-import '@/layout/admin/common/header-nav/header-nav'
-
 const manage = {
     // 分页参数
     pageInfo: {},
@@ -43,7 +40,6 @@ const manage = {
                 that.getDataAndPage();
             }
         });
-
         // ID
         $('#id_btn').click(function () {
             $('.table-link').removeClass('active');
@@ -122,33 +118,32 @@ const manage = {
             ]
             that.getDataAndPage();
         });
-
         // 删除
         $(document).on('click', '#delete_btn', function () {
             let id = $(this).parent().data('id');
             if (confirm('确定要删除吗？删除后可以从回收站找回.')) {
-                articleService.deleteArticle(id).then(() => {
+                articleService.setDeleted(id).then(() => {
                     that.getDataAndPage();
+                    util.simpleTip('删除成功');
                 });
             }
         });
-
-        // 置顶/取消置顶
-        $(document).on('click', '#top_btn', function () {
-            let id = $(this).parent().data('id');
-            let statusCode = $(this).parent().data('status');
-            articleService.topArticle(id, statusCode == articleService.articleStatus.TOP).then(() => {
-                that.getDataAndPage();
-            });
-        });
-
         // 发布/停止发布
         $(document).on('click', '#publish_btn', function () {
             let id = $(this).parent().data('id');
             let statusCode = $(this).parent().data('status');
-            articleService.publishArticle(id, statusCode == articleService.articleStatus.NOT_PUBLISHED).then(() => {
-                that.getDataAndPage();
-            });
+            if (statusCode == articleService.articleStatus.NOT_PUBLISHED) {
+                articleService.setPublished(id).then(() => {
+                    that.getDataAndPage();
+                    util.simpleTip('已发布');
+                });
+            }
+            else if (statusCode == articleService.articleStatus.PUBLISHED) {
+                articleService.setNotPublished(id).then(() => {
+                    that.getDataAndPage();
+                    util.simpleTip('已停止发布');
+                });
+            }
         });
 
     },

@@ -135,19 +135,21 @@ module.exports = {
 // 提供后台页面
 function renderHtmlWebpackPluginAsAdmin(templateName, title) {
     return new HtmlWebpackPlugin({
+        favicon: path.join(__dirname, 'src', 'favicon.ico'),
         template: path.join(__dirname, 'src/layout/admin/' + templateName + '.html'),
         filename: 'admin/' + templateName + '.html',
         chunks: ['vendor', 'common-css', 'common-admin', 'common-fun', 'service', 'admin-' + templateName],
-        title: title + '-博客后台管理',
+        title: title + ' | 简·博客',
     })
 }
 
 // 提供前台页面
 function renderHtmlWebpackPlugin(templateName, title) {
     return new HtmlWebpackPlugin({
+        favicon: path.join(__dirname, 'src', 'favicon.ico'),
         template: path.join(__dirname, 'src/layout/' + templateName + '.html'),
         filename: templateName + '.html',
         chunks: ['vendor', 'common-css', 'common-client', 'common-fun', 'service', templateName],
-        title: title + '-Xiaobucvg博客',
+        title: title + ' | 简·博客',
     })
 }

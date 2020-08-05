@@ -1,7 +1,7 @@
 import './result.css'
 import banner from '../../layout/common/banner/banner'
 import Pagaination from '@/util/pagination/pagaination'
-
+import '@/layout/common/sidebar/sidebar'
 import util from '@/util/util'
 
 import articleService from '@/service/article-service'
@@ -20,6 +20,7 @@ const result = {
 
         this.keywords = util.getUrlParamter('keywords');
         this.tag = util.getUrlParamter('tag');
+        this.tagName = util.getUrlParamter('tagname');
 
         // 如果关键字和标签同时存在，那么只有关键字有用
 
@@ -50,7 +51,7 @@ const result = {
 
     processTag() {
 
-        banner('Result', '标签下的内容');
+        banner('Result', '标签‘' + decodeURI(this.tagName) + '’下的内容');
 
         this.requestInfo.tagid = this.tag;
         this.getDataAndPageByTag()

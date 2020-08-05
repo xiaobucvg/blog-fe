@@ -4,6 +4,8 @@
 }
 .main .content .item:hover a{
     text-decoration: none;
+}
+.main .content .item:hover a .abstract{
     color:#0085a1 !important;
 }
 .main .content .item:nth-child(1){

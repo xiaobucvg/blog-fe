@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+    <title>
+        设置|简·博客
+    </title>
+<link href="../css/vendor.1a87a9b762964471c76c.css" rel="stylesheet"><link href="../css/common-fun.1a87a9b762964471c76c.css" rel="stylesheet"><link href="../css/common-admin.1a87a9b762964471c76c.css" rel="stylesheet"><link href="../css/admin-setting.1a87a9b762964471c76c.css" rel="stylesheet"></head>
+
+<body>
+    <div class="alert"></div>
+    <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
+    <!-- logo -->
+    <a class="navbar-brand font-weight-bold" href="/admin/index.html">管 理</a>
+    <!-- 导航内容 -->
+    <div class="w-100">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/index.html">信息台</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/manage.html">博文管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/setting.html">功能</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/edit.html">写文章<span class="iconfont ml-2">&#xe502;</span></a>
+            </li>
+        </ul>
+    </div>
+    <!-- 用户 -->
+    <div class="user d-flex">
+        <div class="dropdown">
+            <a class="dropdown-toggle text-white" data-toggle="dropdown" role="button" id="name_area"></a>
+            <div class="dropdown-menu bdr-none">
+                <a class="bdr-none dropdown-item text-center" id="logout_btn">退出登录</a>
+            </div>
+        </div>
+        <div class="avatar ml-3">
+            <img id="avatar_src" width="35" height="35" src="https://www.baidu.com/img/bd_logo1.png" class="pic circle"
+                alt="无法显示">
+        </div>
+    </div>
+</nav>
+
+
+
+    <!-- 主体部分 -->
+    <section class="container main">
+
+        <div class="row">
+            <div class="col-2 fun-nav">
+                <div class="list-group bdr-none" id="list-tab" role="tablist">
+                    <a class="bdr-none list-group-item list-group-item-action active text-center" id="list-home-list"
+                        data-toggle="list" href="#list-home" role="tab">用户设置</a>
+                    <a class="list-group-item list-group-item-action text-center" id="list-messages-list"
+                        data-toggle="list" href="#list-messages" role="tab">更改密码</a>
+                    <a class="bdr-none cash list-group-item list-group-item-action text-center" id="list-settings-list"
+                        data-toggle="list" href="#list-settings" role="tab">回收站</a>
+                </div>
+            </div>
+            <div class="col-10 pl-0">
+                <!-- 用户设置 -->
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-home" role="tabpanel">
+                        <div
+                            class="font-size- bdr-none p-3 no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+                            <div class="form-group row">
+                                <label class="text-right col-2 col-form-label">登录用户名</label>
+                                <div class="col-10">
+                                    <input type="text" class="bdr-none form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-right col-2 col-form-label">昵称</label>
+                                <div class="col-10">
+                                    <input type="text" class="bdr-none form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-right col-2 col-form-label">头像</label>
+                                <div class="col-10">
+                                    <img src="" alt="">
+                                    <input type="file" class="" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-right col-2 col-form-label"></label>
+                                <div class="col-10">
+                                    <button type="submit" class="bdr-none btn btn-secondary">确认修改</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- 更改密码 -->
+                    <div class="tab-pane fade" id="list-messages" role="tabpanel">
+                        <div
+                            class="bdr-none p-3 no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <div class="form-group">
+                                <label>旧密码</label>
+                                <input type="text" autocomplete="off" class="bdr-none form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>新密码</label>
+                                <input type="password" autocomplete="off" class="bdr-none  form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">确认新密码</label>
+                                <input type="password" autocomplete="off" class="bdr-none  form-control">
+                            </div>
+                            <button type="submit" class="bdr-none btn btn-secondary">确认修改</button>
+                        </div>
+                    </div>
+                    <!-- 回收站 -->
+                    <div class="tab-pane fade" id="list-settings" role="tabpanel">
+                        <div
+                            class="bdr-none row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <table class="table depot">
+                                <thead>
+                                    <tr class="bg-light">
+                                        <td scope="col">#</td>
+                                        <td scope="col">
+                                            <a class="link table-link" id="id_btn">ID</a>
+                                        </td>
+                                        <td scope="col"><a class="link table-link" id="title_btn">标题</a>
+                                        </td>
+                                        </td>
+                                        <td scope="col"><a class="link table-link" id="update_time_btn">删除时间</a>
+                                        </td>
+                                        <td scope="col"><a class="link table-link" id="status_btn">操作</a>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody id="table_wrapper">
+                                    <!-- 渲染 -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-right d-flex justify-content-between">
+                            <div id="page">
+                                <!-- 渲染 -->
+                            </div>
+                            <button type="button" id="clean_dpot"
+                                class="bdr-none btn btn-danger text-right">清空回收站</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="container-fluid footer">
+    <div class="container text-center">
+        <p>Copyright © 2020 Jian·Blog | xiaobucvg</p>
+    </div>
+</footer>
+<script type="text/javascript" src="../js/vendor.1a87a9b762964471c76c.js"></script><script type="text/javascript" src="../js/common-fun.1a87a9b762964471c76c.js"></script><script type="text/javascript" src="../js/service.1a87a9b762964471c76c.js"></script><script type="text/javascript" src="../js/common-admin.1a87a9b762964471c76c.js"></script><script type="text/javascript" src="../js/admin-setting.1a87a9b762964471c76c.js"></script></body>
+
+</html>

@@ -17,21 +17,34 @@
     <!-- 主体部分 -->
     <section class="container main">
         <div class="row">
+            <div class="col-lg-1"></div>
             <!-- 文章内容 -->
-            <div class="col-lg-8 content">
+            <div class="col-lg-10 content">
+                <!-- 目录 -->
+                <div class="d-block">
+                    <div class="menu-title">
+                        Toc.
+                    </div>
+                    <div id="auto_menu" class="ml-3"></div>
+                </div>
                 <article class="typo typo-selection" id="article">
 
                 </article>
+
+                <!-- 上一篇/下一篇 -->
                 <hr>
-                <div id="tags_content">
+                <div class="pre-next">
+                    <a href="#" class="pre-btn" title="文章名称" data-toggle="tooltip" data-placement="top">PREVIOUS</a>
+                    <a href="#" class="next-btn" title="下一篇文章名称" data-toggle="tooltip" data-placement="top">NEXT</a>
                 </div>
-            </div>
-            <!-- 目录 -->
-            <div class="d-none d-lg-block col-lg-3 ml-5">
-                <div class="title font-weight-bold">
-                    目录
+                <!-- 标签 -->
+                <hr>
+                <div class="tags-wrap">
+                    <div class="title text-secondary noselect">ALL TAGS</div>
+                    <div id="tags_content">
+
+                    </div>
                 </div>
-                <div id="auto_menu"></div>
             </div>
         </div>
     </section>

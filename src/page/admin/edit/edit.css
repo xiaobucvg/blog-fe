@@ -4,6 +4,7 @@
 .badge.badge.badge-info{
     margin-right: 3px !important;
     background-color: #6c757d;
+    border-radius:unset;
 }
 .container{
     width: 1280px !important;

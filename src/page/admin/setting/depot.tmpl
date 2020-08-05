@@ -1,0 +1,20 @@
+{@each list as item,index}
+<tr>
+    <td>${parseInt((currentPage - 1) * hopeCount) + parseInt(index) + parseInt(1)}</td>
+    <td>
+        <a class="link">
+            ${item.id}
+        </a>
+    </td>
+    <td>
+        <a class="link color-link">
+            ${item.title}
+        </a>
+    </td>
+    <td>${item.updateTime}</td>
+    <td data-id="${item.id}">
+        <a class="link text-danger" id="delete_btn">永久删除</a>
+        <a target="blank" class="link" id="resume_btn">恢复</a>
+    </td>
+</tr>
+{@/each}

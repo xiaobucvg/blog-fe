@@ -1,13 +1,20 @@
 .archive-group{
     margin-bottom: 25px;
 }
-.archive-group > .archive-date > .title{
+.archive-group > .archive-date{
     position: relative;
-    text-align: center; 
+}
+.archive-group > .archive-date > .title{
+    color:#0085a1;
+}
+.archive-group > .archive-date > .count-badge{
+    position: absolute;
+    right: 0;
+    top: 30%;
 }
 .archive-group > .item{
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-bottom: 1px #eee solid;
 }
 .archive-group > .item > .link:hover{

@@ -1,6 +1,6 @@
 import './index.css'
 import banner from '../../layout/common/banner/banner'
-
+import '@/layout/common/sidebar/sidebar'
 import Pagaination from '@/util/pagination/pagaination'
 
 import articleService from '@/service/article-service'
@@ -54,7 +54,7 @@ const index = {
 
 $(function () {
     sessionStorage.setItem('nth-nav', 0);
-    banner('Xiaobu', 'Keep Going');
+    banner('Xiaobu Blog', 'You hou hou hou~');
 
     index.init();
 })

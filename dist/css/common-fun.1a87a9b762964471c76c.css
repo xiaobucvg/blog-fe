@@ -4,8 +4,12 @@
 .pagination .page-item .page-link{
     color:#343a40;
 }
+.pagination .page-item.active{
+    
+}
 .pagination .page-item.active a{
     color:#fff !important;
+    background-color: #6c757d !important;
 }
 .pagination .page-item.disabled{
     cursor: not-allowed;

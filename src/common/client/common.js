@@ -10,4 +10,3 @@ import '@/util/pagination/pagination.css'
 import '@/util/iconfont/iconfont.css'
 
 import '@/layout/common/header-nav/header-nav'
-import '@/layout/common/sidebar/sidebar'

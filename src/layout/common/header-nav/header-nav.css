@@ -1,3 +1,45 @@
 .navbar-nav > .nav-item > .nav-link:hover{
     color:#fff;
 }
+#header_nav_wrapper {
+    transition: background .5s;
+    background-color: #fff;
+}
+#header_nav_wrapper.bg-dark{
+    background-color: rgba(0, 0, 0, 0)!important;
+}
+.bg-white{
+    color:#000;
+    background-color: #fff;
+    opacity: 0.8;
+    border-bottom:1px #eee solid;
+}
+.bg-white a{
+    color:#000 !important;
+    font-weight: 700;
+}
+.bg-white #keywords_input{
+    border:1px solid #ccc;
+}
+
+@media screen and (max-width:576px){
+    #header_nav_wrapper.bg-dark{
+        background-color: #262c3a !important;
+    }
+    .bg-white .navbar-toggler{
+        border:1px solid #ccc;
+        outline: none;
+    }
+    .bg-white{
+        opacity: 1 !important;
+        background-color: #262c3a !important;
+        border:none !important;
+    }
+    .bg-white a{
+        color:#fff !important;
+        font-weight: 400;
+    }
+    .bg-white #keywords_input{
+        border:none;
+    }
+}

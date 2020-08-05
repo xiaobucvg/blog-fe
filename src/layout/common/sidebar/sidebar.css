@@ -34,6 +34,7 @@
     padding: 8px 5px;
     border: 1px solid #999;
     color:#343a40;
+    border-radius: 999rem;
 }
 .sidebar > .tag > .content > .badge:hover{
     background-color: #0085a1 !important;

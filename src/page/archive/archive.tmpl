@@ -1,18 +1,19 @@
 {@each list as group,key}
 <div class="archive-group">
     <!-- 归档日期 -->
-    <div class="archive-date">
-        <h2 class="title font-weight-bold">${key}</h2>
+    <div class="archive-date mb-3">
+        <h3 class="title font-weight-bold noselect">${key}</h3>
+        <span class="count-badge badge badge-info noselect">共${group.length}篇</span>
     </div>
     <!-- 归档条目 -->
 
     {@each group as item}
-    <div class="item">
-        <a href="/detail.html?id=${item.id}" class="link">
-            <h4 class="title">${item.title}</h4>
+    <div class="item d-flex justify-content-between align-items-center">
+        <a href="/detail.html?id=${item.id}" class="link text-reset font-weight-bold">
+            <p class="title">${item.title}</p>
         </a>
-        <div class="post-date mt-2">
-            发布于：<span>${item.createTime}</span>
+        <div class="post-date mt-1">
+            <span class="noselect">${item.createTime}</span>
         </div>
     </div>
     {@/each}

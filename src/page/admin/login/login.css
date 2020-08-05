@@ -1,8 +1,12 @@
-.login-panel{
-    margin-top: 100px;
+
+html{
     background-color: #6c757d;
 }
-.container{
-    width: 1280px !important;
-    max-width: none !important;
+
+body{
+    background-color: #6c757d;
+}
+
+.footer{
+    color:#fff;
 }

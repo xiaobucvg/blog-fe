@@ -7,17 +7,17 @@ const NEED_LOGIN = 401;
 
 const tipModal = `
 <!-- Modal -->
-<div class="modal fade" data-backdrop="static" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
+<div class="bdr-none modal fade" data-backdrop="static" tabindex="-1" role="dialog">
+    <div class="bdr-none modal-dialog" role="document">
+        <div class="bdr-none modal-content">
+            <div class="bdr-none modal-header">
                 <span class="modal-title" id="staticBackdropLabel">提示</span>
                 <button type="button" class="close" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
             </div>
-            <div class="modal-body" id="tip_msg">
-                文章更新成功
+            <div class="bdr-none modal-body" id="tip_msg">
+                
             </div>
         </div>
     </div>
@@ -64,15 +64,15 @@ export default {
                 data: obj.data,
                 dataType: 'json', // 接收的数据类型
                 processData: obj.processData == null ? true : obj.processData,
-                contentType: obj.contentType || 'application/x-www-form-urlencoded',// 请求时的编码类型
+                contentType: obj.contentType == null ? 'application/x-www-form-urlencoded' : obj.contentType,// 请求时的编码类型
                 success(data) {
                     // 成功
                     if (data.code == OK) {
-                        resolve(data.data);
+                        resolve(data.data, data.msg);
                     }
                     // 需要登录
                     else if (data.code == NEED_LOGIN) {
-                        // that.goLoginPage();
+                        that.goLoginPage();
                     }
                     // 失败
                     else {
@@ -97,6 +97,7 @@ export default {
             alert(msg);
         }
     },
+    // 成功提示
     successTip(msg) {
         if ($('#tip_modal').length > 0) {
             $('#tip_modal').html(tipModal);
@@ -108,8 +109,16 @@ export default {
         }
     },
 
+    // 轻量提示
+    simpleTip(msg) {
+        $('.alert').hide();
+        $('.alert').html(msg).addClass('alert-success').fadeIn().delay(1000).fadeOut();
+    },
+
     // 跳转到登录页面
     goLoginPage() {
-        window.location.href = '/admin/login.html';
+        if (window.location.href.indexOf('login') == -1) {
+            window.location.href = '/admin/login.html';
+        }
     }
 }

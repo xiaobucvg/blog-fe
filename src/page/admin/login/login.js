@@ -9,12 +9,6 @@ const login = {
     requestInfo: {},
 
     init() {
-
-        // 如果打开登录页面能够查到个人信息,说明已经登录了,跳到管理页面
-        // adminService.getInfo().then(() => {
-        //     window.location.href = "/admin/index.html";
-        // });
-
         this.bindEvent();
     },
 
@@ -23,8 +17,8 @@ const login = {
         $('#login_btn').click(function () {
             that.createRequestInfo();
             if (that.validateData()) {
-                adminService.getToken(that.requestInfo.username, that.requestInfo.password).then((token) => {
-                    window.localStorage.setItem('token', token);
+                adminService.getToken(that.requestInfo.username, that.requestInfo.password).then((data) => {
+                    window.localStorage.setItem('token', data.token);
                     window.location.href = '/admin/index.html'
                 }).catch((data) => {
                     util.errTip(data.msg);
@@ -55,4 +49,8 @@ const login = {
 
 $(function () {
     login.init();
+
+    let a = require('../../../asserts/imgs/index-bg.png');
+    console.log(a);
+
 })

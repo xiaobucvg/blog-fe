@@ -1,19 +1,17 @@
 import './archive.css'
-import banner from '../../layout/common/banner/banner'
-
+import banner from '@/layout/common/banner/banner'
+import '@/layout/common/sidebar/sidebar'
 import articleService from '@/service/article-service'
 
 import archiveTmpl from './archive.tmpl'
 import util from '@/util/util'
-
-import Pagaination from '@/util/pagination/pagaination'
 
 const archive = {
 
     requestInfo: {},
 
     init() {
-        banner('归档', '');
+        banner('Archieve', '');
 
         this.getDataAndPage();
     },
@@ -25,16 +23,6 @@ const archive = {
         // 2. 创建默认数据的分页
         articleService.getArchive(that.requestInfo).then(data => {
             this.createHtml(data);
-            this.pageInfo = this.getPageInfo(data);
-
-            // 点击页码之后的回调
-            this.pageInfo.callBack = (pageData) => {
-                that.requestInfo.startPage = pageData.currentPage;
-                articleService.getArchive(that.requestInfo).then((data) => {
-                    this.createHtml(data);
-                });
-            }
-            new Pagaination(this.pageInfo);
         });
     },
 
@@ -44,13 +32,6 @@ const archive = {
         $('#archive_content').html(html);
     },
 
-    // 获取分页信息
-    getPageInfo(data) {
-        let pageInfo = {};
-        pageInfo = Object.assign(pageInfo, data);
-        delete pageInfo.list;
-        return pageInfo;
-    }
 }
 
 $(function () {

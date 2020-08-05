@@ -1,0 +1,6 @@
+{@each list as log}
+<div class="item d-flex justify-content-between">
+    <a class="text-dark">IP ${log.ip} ${log.msg}</a>
+    <span>${log.createTime}</span>
+</div>
+{@/each}

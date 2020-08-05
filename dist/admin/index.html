@@ -10,22 +10,25 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
     <title>
-        首页-博客后台管理
+        首页|简·博客
     </title>
-<link href="../css/common-fun.d95ee473f216a6e03850.css" rel="stylesheet"><link href="../css/vendor.d95ee473f216a6e03850.css" rel="stylesheet"><link href="../css/common-admin.d95ee473f216a6e03850.css" rel="stylesheet"><link href="../css/admin-index.d95ee473f216a6e03850.css" rel="stylesheet"></head>
+<link href="../css/vendor.1a87a9b762964471c76c.css" rel="stylesheet"><link href="../css/common-fun.1a87a9b762964471c76c.css" rel="stylesheet"><link href="../css/common-admin.1a87a9b762964471c76c.css" rel="stylesheet"><link href="../css/admin-index.1a87a9b762964471c76c.css" rel="stylesheet"></head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
     <!-- logo -->
     <a class="navbar-brand font-weight-bold" href="/admin/index.html">管 理</a>
     <!-- 导航内容 -->
-    <div class="navbar-collapse">
+    <div class="w-100">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="/admin/index.html">信息台</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/manage.html">博客管理</a>
+                <a class="nav-link" href="/admin/manage.html">博文管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/setting.html">功能</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin/edit.html">写文章<span class="iconfont ml-2">&#xe502;</span></a>
@@ -34,19 +37,15 @@
     </div>
     <!-- 用户 -->
     <div class="user d-flex">
-
-
-
         <div class="dropdown">
             <a class="dropdown-toggle text-white" data-toggle="dropdown" role="button" id="name_area"></a>
-            <div class="dropdown-menu">
-                <!-- <div class="dropdown-divider"></div> -->
-                <a class="dropdown-item" id="logout_btn">退出登录</a>
+            <div class="dropdown-menu bdr-none">
+                <a class="bdr-none dropdown-item text-center" id="logout_btn">退出登录</a>
             </div>
         </div>
         <div class="avatar ml-3">
-            <img id="avatar_area" src="https://pic2.zhimg.com/v2-59766c0975764b83b8946c48ac1c39b8_is.jpg"
-                class="pic circle " alt="无法显示">
+            <img id="avatar_src" width="35" height="35" src="https://www.baidu.com/img/bd_logo1.png" class="pic circle"
+                alt="无法显示">
         </div>
     </div>
 </nav>
@@ -55,7 +54,7 @@
     <section class="container main">
         <!-- 图表 -->
         <div class="chart-wrap bdr-none card mb-5">
-            <div class="card-header">
+            <div class="bdr-none card-header">
                 文章阅读图表
             </div>
             <div class="card-body d-flex justify-content-around">
@@ -67,56 +66,20 @@
         </div>
         <!-- 日志 -->
         <div class="log-wrap bdr-none card mb-5">
-            <div class="card-header">
+            <div class="bdr-none card-header">
                 最近操作
             </div>
-            <div class="card-body">
-                <div class="item d-flex justify-content-between">
-                    <a href="" class="text-dark">IP 172.165.12.32 登陆了系统</a>
-                    <span>2020-12-12 23:23:10</span>
-                </div>
-                <div class="item d-flex justify-content-between">
-                    <a href="" class="text-dark">IP 172.165.12.32 登陆了系统</a>
-                    <span>2020-12-12 23:23:10</span>
-                </div>
-                <div class="item d-flex justify-content-between">
-                    <a href="" class="text-dark">IP 172.165.12.32 登陆了系统</a>
-                    <span>2020-12-12 23:23:10</span>
-                </div>
-                <div class="item d-flex justify-content-between">
-                    <a href="" class="text-dark">IP 172.165.12.32 登陆了系统</a>
-                    <span>2020-12-12 23:23:10</span>
-                </div>
-                <div class="item d-flex justify-content-between">
-                    <a href="" class="text-dark">IP 172.165.12.32 登陆了系统</a>
-                    <span>2020-12-12 23:23:10</span>
-                </div>
-                <div class="item d-flex justify-content-between">
-                    <a href="" class="text-dark">IP 172.165.12.32 登陆了系统</a>
-                    <span>2020-12-12 23:23:10</span>
-                </div>
+            <div class="card-body" id="logs_content">
 
-                <div class="item d-flex justify-content-between">
-                    <a href="" class="text-dark">IP 172.165.12.32 登陆了系统</a>
-                    <span>2020-12-12 23:23:10</span>
-                </div>
-                <div class="item d-flex justify-content-between">
-                    <a href="" class="text-dark">IP 172.165.12.32 登陆了系统</a>
-                    <span>2020-12-12 23:23:10</span>
-                </div>
-                <div class="item d-flex justify-content-between">
-                    <a href="" class="text-dark">IP 172.165.12.32 登陆了系统</a>
-                    <span>2020-12-12 23:23:10</span>
-                </div>
             </div>
         </div>
     </section>
 
     <footer class="container-fluid footer">
     <div class="container text-center">
-        <p>Copyright © 2020 Soft | xiaobucvg</p>
+        <p>Copyright © 2020 Jian·Blog | xiaobucvg</p>
     </div>
 </footer>
-<script type="text/javascript" src="../js/common-fun.d95ee473f216a6e03850.js"></script><script type="text/javascript" src="../js/vendor.d95ee473f216a6e03850.js"></script><script type="text/javascript" src="../js/service.d95ee473f216a6e03850.js"></script><script type="text/javascript" src="../js/common-admin.d95ee473f216a6e03850.js"></script><script type="text/javascript" src="../js/admin-index.d95ee473f216a6e03850.js"></script></body>
+<script type="text/javascript" src="../js/vendor.1a87a9b762964471c76c.js"></script><script type="text/javascript" src="../js/common-fun.1a87a9b762964471c76c.js"></script><script type="text/javascript" src="../js/service.1a87a9b762964471c76c.js"></script><script type="text/javascript" src="../js/common-admin.1a87a9b762964471c76c.js"></script><script type="text/javascript" src="../js/admin-index.1a87a9b762964471c76c.js"></script></body>
 
 </html>

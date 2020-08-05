@@ -9,6 +9,8 @@ import hotTmpl from './hot.tmpl'
 const sidebar = {
 
     init() {
+        this.createNav();
+
         tagService.getTags().then(data => {
             this.createHtml(data);
         })
@@ -18,6 +20,10 @@ const sidebar = {
                 list: data
             });
         })
+    },
+    // 渲染导航
+    createNav() {
+        $('#qrcode_src').attr('src', util.host + '/user/qrcode.jpg')
     },
 
     // 渲染标签

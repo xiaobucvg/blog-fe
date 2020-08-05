@@ -9,7 +9,10 @@
 </head>
 
 <body>
+    <div class="alert"></div>
     <%=require('html-loader!./common/header-nav/header-nav.html')%>
+
+
 
     <!-- 主体部分 -->
     <section class="container main">
@@ -18,79 +21,108 @@
             <div class="col-2 fun-nav">
                 <div class="list-group bdr-none" id="list-tab" role="tablist">
                     <a class="bdr-none list-group-item list-group-item-action active text-center" id="list-home-list"
-                        data-toggle="list" href="#list-home" role="tab">用户设置</a>
-                    <a class="list-group-item list-group-item-action text-center" id="list-profile-list"
-                        data-toggle="list" href="#list-profile" role="tab">博客导航</a>
+                        data-toggle="list" href="#list-home" role="tab">用户信息</a>
                     <a class="list-group-item list-group-item-action text-center" id="list-messages-list"
-                        data-toggle="list" href="#list-messages" role="tab">更改密码</a>
+                        data-toggle="list" href="#list-messages" role="tab">修改密码</a>
                     <a class="bdr-none cash list-group-item list-group-item-action text-center" id="list-settings-list"
                         data-toggle="list" href="#list-settings" role="tab">回收站</a>
                 </div>
             </div>
-            <div class="col-10">
+            <div class="col-10 pl-0">
+                <!-- 用户设置 -->
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="list-home" role="tabpanel">
                         <div
-                            class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            class="font-size- bdr-none p-3 no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 
-                            <!-- 照片 -->
-                            <div class="col-auto d-none d-lg-block">
-                                <img src="http://msn-img-nos.yiyouliao.com/inforec-20200326-c7335018be06ca9e5b07988ed8b3004a.jpg?time=1585316494&signature=80AF56EFCC6A0F0E2B31FC4D64CEA2C5"
-                                    alt="" width="200" height="300">
+                            <div class="form-group row">
+                                <label class="text-right col-2 col-form-label">用户名</label>
+                                <div class="col-8">
+                                    <input type="text" id="username_input" class="bdr-none form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-right col-2 col-form-label">头像</label>
+                                <div class="col-8">
+                                    <img id="user_info_avatar_src" class="img-circle" width="150" height="150"
+                                        src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1586084831635&di=72f066b0830baf4a068bb82f6fa29627&imgtype=0&src=http%3A%2F%2Fwww.17qq.com%2Fimg_qqtouxiang%2F75876954.jpeg"
+                                        alt="头像显示失败">
+                                    <input type="file" class="d-none" id="avatar_input" accept="image/*" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-right col-2 col-form-label">昵称</label>
+                                <div class="col-8">
+                                    <input type="text" id="nickname_input" class="bdr-none form-control">
+                                </div>
                             </div>
 
-                            <!-- 信息 -->
-                            <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-primary">小布</strong>
-                                <h3 class="mb-0">今日运势</h3>
-                                <div class="mb-1 text-muted">三月 初八</div>
-                                <p class="card-text mb-auto">大佬不一定是大佬，菜鸟一定是菜鸟。</p>
-                                <a href="#" class="stretched-link">更改个人信息</a>
+                            <div class="form-group row">
+                                <label class="text-right col-2 col-form-label"></label>
+                                <div class="col-8">
+                                    <button type="submit" id="change_info_btn"
+                                        class="bdr-none btn btn-secondary">确认修改</button>
+                                </div>
                             </div>
 
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="list-profile" role="tabpanel">...</div>
-                    <div class="tab-pane fade" id="list-messages" role="tabpanel">...</div>
+                    <!-- 更改密码 -->
+                    <div class="tab-pane fade" id="list-messages" role="tabpanel">
+                        <div
+                            class="bdr-none p-3 no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <div class="form-group">
+                                <label>旧密码</label>
+                                <input type="text" id="old_password_input" autocomplete="off"
+                                    class="bdr-none form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>新密码</label>
+                                <input type="password" id="new_password_input" autocomplete="off"
+                                    class="bdr-none  form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">确认新密码</label>
+                                <input type="password" id="repeat_password_input" autocomplete="off"
+                                    class="bdr-none  form-control">
+                            </div>
+                            <button type="submit" id="change_password_btn"
+                                class="bdr-none btn btn-secondary">确认修改</button>
+                        </div>
+                    </div>
                     <!-- 回收站 -->
                     <div class="tab-pane fade" id="list-settings" role="tabpanel">
-                        <table class="table">
-                            <thead>
-                                <tr class="bg-light">
-                                    <td scope="col">#</td>
-                                    <td scope="col">
-                                        <a class="link table-link" id="id_btn">ID</a>
-                                    </td>
-                                    <td scope="col"><a class="link table-link" id="title_btn">标题</a>
-                                    </td>
-                                    </td>
-                                    <td scope="col"><a class="link table-link" id="update_time_btn">删除时间</a>
-                                    </td>
-                                    <td scope="col"><a class="link table-link" id="status_btn">操作</a>
-                                    </td>
-                                </tr>
-                            </thead>
-                            <tbody id="table_wrapper">
-                                <tr>
-                                    <td>1</td>
-                                    <td>
-                                        <a class="link">
-                                            1001
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="link color-link">
-                                            文章标题
-                                        </a>
-                                    </td>
-                                    <td>2016-02-02 23:23:23</td>
-                                    <td>
-                                        <a class="link text-danger" id="delete_btn">永久删除</a>
-                                        <a target="blank" class="link">恢复</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div
+                            class="bdr-none row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <table class="table depot">
+                                <thead>
+                                    <tr class="bg-light">
+                                        <td scope="col">#</td>
+                                        <td scope="col">
+                                            <a class="link table-link" id="id_btn">ID</a>
+                                        </td>
+                                        <td scope="col"><a class="link table-link" id="title_btn">标题</a>
+                                        </td>
+                                        </td>
+                                        <td scope="col"><a class="link table-link" id="update_time_btn">删除时间</a>
+                                        </td>
+                                        <td scope="col"><a class="link table-link" id="status_btn">操作</a>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody id="table_wrapper">
+                                    <!-- 渲染 -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-right d-flex justify-content-between">
+                            <div id="page">
+                                <!-- 渲染 -->
+                            </div>
+                            <button type="button" id="clean_dpot"
+                                class="bdr-none btn btn-danger text-right">清空回收站</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
