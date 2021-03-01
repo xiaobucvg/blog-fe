@@ -39,7 +39,7 @@
     "jquery": "^3.4.1",
     "juicer": "^0.6.15",
     "popper.js": "^1.16.1",
-    "prismjs": "^1.19.0",
+    "prismjs": "^1.23.0",
     "qs": "^6.9.1",
     "tui-editor": "^1.4.10",
     "typocss": "^1.4.0"
